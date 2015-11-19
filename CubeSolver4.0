@@ -1,0 +1,5876 @@
+package cube.solver;
+import java.util.Scanner;
+public class CubeSolver {
+
+    public static void main(String[] args) 
+    {
+        // TODO code application logic here
+                //VARABLES
+                /*
+                 * The first and second array number is the location
+                 * and the value is the color
+                 * 1 = GREEN
+                 * 2 = WHITE
+                 * 3 = BLUE
+                 * 4 = YELLOW
+                 * 5 = ORANGE
+                 * 6 = RED
+                 */
+        int Cube_colors[][] = new int[6][8];
+        //get the colors that is on the cube right now
+        Cube_colors = getColors();
+        System.out.println("Checkpoint");
+        
+        //got the colors, not use the algorithm to solve the first layer
+        Cube_colors = layerOneStar(Cube_colors);
+        Cube_colors = layerOneFinish(Cube_colors);
+        
+                
+                
+                
+    }
+    
+
+    //make the full white face
+    public static int[][] layerOneFinish(int[][]white)
+    {
+        //move the white orange green to the righ tplace
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        //search for the whites on the corner pieces 
+        //what we are looking for is the white green and oragne corner piece
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        int counter = 0;
+        int s1 = -1;
+        int s2 = -1;
+        int s3 = -1;
+        int s4 = -1;
+        //Search on 00
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][0] == 2 && white[3][2] == 1 && white[4][0] == 5) {
+            System.out.println("CHECK");
+            if (counter == 0) {
+                s1 = 00;
+            } else if (counter == 1) {
+                s2 = 00;
+            } else if (counter == 2) {
+                s3 = 00;
+            } else if (counter == 3) {
+                s4 = 00;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 02
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][2] == 2 && white[1][0] == 5 && white[4][6] == 1) {
+            if (counter == 0) {
+                s1 = 02;
+            } else if (counter == 1) {
+                s2 = 02;
+            } else if (counter == 2) {
+                s3 = 02;
+            } else if (counter == 3) {
+                s4 = 02;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 06
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][6] == 2 && white[5][6] == 1 && white[3][8] == 5) {
+            if (counter == 0) {
+                s1 = 06;
+            } else if (counter == 1) {
+                s2 = 06;
+            } else if (counter == 2) {
+                s3 = 06;
+            } else if (counter == 3) {
+                s4 = 06;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 08
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][8] == 2 && white[1][6] == 1 && white[5][0] == 5) {
+            if (counter == 0) {
+                s1 = 8;
+            } else if (counter == 1) {
+                s2 = 8;
+            } else if (counter == 2) {
+                s3 = 8;
+            } else if (counter == 3) {
+                s4 = 8;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 10
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][0] == 2 && white[0][2] == 1 && white[4][6] == 5) {
+            if (counter == 0) {
+                s1 = 10;
+            } else if (counter == 1) {
+                s2 = 10;
+            } else if (counter == 2) {
+                s3 = 10;
+            } else if (counter == 3) {
+                s4 = 10;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 12
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][2] == 2 && white[4][8] == 1 && white[2][0] == 5) {
+            if (counter == 0) {
+                s1 = 12;
+            } else if (counter == 1) {
+                s2 = 12;
+            } else if (counter == 2) {
+                s3 = 12;
+            } else if (counter == 3) {
+                s4 = 12;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 16
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][6] == 2 && white[5][0] == 1 && white[0][8] == 5) {
+            if (counter == 0) {
+                s1 = 16;
+            } else if (counter == 1) {
+                s2 = 16;
+            } else if (counter == 2) {
+                s3 = 16;
+            } else if (counter == 3) {
+                s4 = 16;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 18
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][8] == 2 && white[2][6] == 1 && white[5][2] == 5) {
+            if (counter == 0) {
+                s1 = 18;
+            } else if (counter == 1) {
+                s2 = 18;
+            } else if (counter == 2) {
+                s3 = 18;
+            } else if (counter == 3) {
+                s4 = 18;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 20
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][0] == 2 && white[1][2] == 1 && white[4][8] == 5) {
+            if (counter == 0) {
+                s1 = 20;
+            } else if (counter == 1) {
+                s2 = 20;
+            } else if (counter == 2) {
+                s3 = 20;
+            } else if (counter == 3) {
+                s4 = 20;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 22
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][2] == 2 && white[4][2] == 1 && white[3][0] == 5) {
+            if (counter == 0) {
+                s1 = 22;
+            } else if (counter == 1) {
+                s2 = 22;
+            } else if (counter == 2) {
+                s3 = 22;
+            } else if (counter == 3) {
+                s4 = 22;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 26
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][6] == 2 && white[5][2] == 1 && white[1][8] == 5) {
+            if (counter == 0) {
+                s1 = 26;
+            } else if (counter == 1) {
+                s2 = 26;
+            } else if (counter == 2) {
+                s3 = 26;
+            } else if (counter == 3) {
+                s4 = 26;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 28
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][8] == 2 && white[3][6] == 1 && white[5][8] == 5) {
+            if (counter == 0) {
+                s1 = 28;
+            } else if (counter == 1) {
+                s2 = 28;
+            } else if (counter == 2) {
+                s3 = 28;
+            } else if (counter == 3) {
+                s4 = 28;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 30
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][0] == 2 && white[2][2] == 1 && white[4][2] == 5) {
+            if (counter == 0) {
+                s1 = 30;
+            } else if (counter == 1) {
+                s2 = 30;
+            } else if (counter == 2) {
+                s3 = 30;
+            } else if (counter == 3) {
+                s4 = 30;
+                
+            }            
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 32
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][2] == 2 && white[4][0] == 1 && white[0][0] == 5) {
+            if (counter == 0) {
+                s1 = 32;
+            } else if (counter == 1) {
+                s2 = 32;
+            } else if (counter == 2) {
+                s3 = 32;
+            } else if (counter == 3) {
+                s4 = 32;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 36
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][6] == 2 && white[5][8] == 1 && white[2][8] == 5) {
+            if (counter == 0) {
+                s1 = 36;
+            } else if (counter == 1) {
+                s2 = 36;
+            } else if (counter == 2) {
+                s3 = 36;
+            } else if (counter == 3) {
+                s4 = 36;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 38
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][8] == 2 && white[0][6] == 1 && white[5][6] == 5) {
+            if (counter == 0) {
+                s1 = 38;
+            } else if (counter == 1) {
+                s2 = 38;
+            } else if (counter == 2) {
+                s3 = 38;
+            } else if (counter == 3) {
+                s4 = 38;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 40
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][0] == 2 && white[0][0] == 1 && white[3][2] == 5) {
+            if (counter == 0) {
+                s1 = 40;
+            } else if (counter == 1) {
+                s2 = 40;
+            } else if (counter == 2) {
+                s3 = 40;
+            } else if (counter == 3) {
+                s4 = 40;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 42
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][2] == 2 && white[3][0] == 1 && white[2][2] == 5) {
+            if (counter == 0) {
+                s1 = 42;
+            } else if (counter == 1) {
+                s2 = 42;
+            } else if (counter == 2) {
+                s3 = 42;
+            } else if (counter == 3) {
+                s4 = 42;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 46
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][6] == 2 && white[1][0] == 1 && white[0][2] == 5) {
+            if (counter == 0) {
+                s1 = 46;
+            } else if (counter == 1) {
+                s2 = 46;
+            } else if (counter == 2) {
+                s3 = 46;
+            } else if (counter == 3) {
+                s4 = 46;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 48
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][8] == 2 && white[2][0] == 1 && white[1][2] == 5) {
+            if (counter == 0) {
+                s1 = 48;
+            } else if (counter == 1) {
+                s2 = 48;
+            } else if (counter == 2) {
+                s3 = 48;
+            } else if (counter == 3) {
+                s4 = 48;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 50
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][0] == 2 && white[0][8] == 1 && white[1][6] == 5) {
+            if (counter == 0) {
+                s1 = 50;
+            } else if (counter == 1) {
+                s2 = 50;
+            } else if (counter == 2) {
+                s3 = 50;
+            } else if (counter == 3) {
+                s4 = 50;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 52
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][2] == 2 && white[1][8] == 1 && white[2][6] == 5) {
+            if (counter == 0) {
+                s1 = 52;
+            } else if (counter == 1) {
+                s2 = 52;
+            } else if (counter == 2) {
+                s3 = 52;
+            } else if (counter == 3) {
+                s4 = 52;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 56
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][6] == 2 && white[3][8] == 1 && white[0][6] == 5) {
+            if (counter == 0) {
+                s1 = 56;
+            } else if (counter == 1) {
+                s2 = 56;
+            } else if (counter == 2) {
+                s3 = 56;
+            } else if (counter == 3) {
+                s4 = 56;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //FINALLY Search on 57
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][8] == 2 && white[2][8] == 1 && white[3][6] == 5) {
+            if (counter == 0) {
+                s1 = 58;
+            } else if (counter == 1) {
+                s2 = 58;
+            } else if (counter == 2) {
+                s3 = 58;
+            } else if (counter == 3) {
+                s4 = 58;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Display the white ones
+        System.out.println("check" + s1 + " " + s2 + " " + s3 + " " + s4);
+        // </editor-fold>
+
+        /*move the first piece of
+         *the corner piece the the rigth place
+         it is the green orange and white piece
+         */        
+        int[] orangegreen = new int[2];
+        //set the orange blue array to the location of the 
+        //white that has the orange and the blu
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (s1 == 00) {
+            orangeblue[0] = 0;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 02) {
+            orangeblue[0] = 0;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 06) {
+            orangeblue[0] = 0;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 8) {
+            orangeblue[0] = 0;
+            orangeblue[1] = 8;
+        }
+        if (s1 == 10) {
+            orangeblue[0] = 1;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 12) {
+            orangeblue[0] = 1;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 16) {
+            orangeblue[0] = 1;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 18) {
+            orangeblue[0] = 1;
+            orangeblue[1] = 8;
+        }
+        if (s1 == 20) {
+            orangeblue[0] = 2;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 22) {
+            orangeblue[0] = 2;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 26) {
+            orangeblue[0] = 2;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 28) {
+            orangeblue[0] = 2;
+            orangeblue[1] = 8;
+        }
+        if (s1 == 30) {
+            orangeblue[0] = 3;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 32) {
+            orangeblue[0] = 3;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 36) {
+            orangeblue[0] = 3;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 38) {
+            orangeblue[0] = 3;
+            orangeblue[1] = 8;
+        }
+        if (s1 == 40) {
+            orangeblue[0] = 4;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 42) {
+            orangeblue[0] = 4;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 46) {
+            orangeblue[0] = 4;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 48) {
+            orangeblue[0] = 4;
+            orangeblue[1] = 8;
+        }
+        if (s1 == 50) {
+            orangeblue[0] = 5;
+            orangeblue[1] = 0;
+        }
+        if (s1 == 52) {
+            orangeblue[0] = 5;
+            orangeblue[1] = 2;
+        }
+        if (s1 == 56) {
+            orangeblue[0] = 5;
+            orangeblue[1] = 6;
+        }
+        if (s1 == 58) {
+            orangeblue[0] = 5;
+            orangeblue[1] = 8;
+        }
+
+// </editor-fold>
+        white = WhiteOrangeGreen(white, orangegreen);
+
+// </editor-fold>
+        return white;
+    }
+    public static int[][] WhiteOrangeGreen(int white[][], int orangeGreen[])
+    {
+        if(orangeGreen[0] == 0 && orangeGreen[1] == 0)
+        {
+            
+        }
+        return white;
+    }
+    
+
+
+
+
+
+    //Make the star for layer one(white side)
+    // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+    public static int[][] layerOneStar(int white[][]) {
+        //Find out which one is white
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        int counter = 0;
+        int s1 = -1;
+        int s2 = -1;
+        int s3 = -1;
+        int s4 = -1;
+        //Search on 01
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][1] == 2) {
+            System.out.println("CHECK");
+            if (counter == 0) {
+                s1 = 01;
+            } else if (counter == 1) {
+                s2 = 01;
+            } else if (counter == 2) {
+                s3 = 01;
+            } else if (counter == 3) {
+                s4 = 01;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 03
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][3] == 2) {
+            if (counter == 0) {
+                s1 = 03;
+            } else if (counter == 1) {
+                s2 = 03;
+            } else if (counter == 2) {
+                s3 = 03;
+            } else if (counter == 3) {
+                s4 = 03;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 05
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][5] == 2) {
+            if (counter == 0) {
+                s1 = 05;
+            } else if (counter == 1) {
+                s2 = 05;
+            } else if (counter == 2) {
+                s3 = 05;
+            } else if (counter == 3) {
+                s4 = 05;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 07
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][7] == 2) {
+            if (counter == 0) {
+                s1 = 07;
+            } else if (counter == 1) {
+                s2 = 07;
+            } else if (counter == 2) {
+                s3 = 07;
+            } else if (counter == 3) {
+                s4 = 07;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 11
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][1] == 2) {
+            if (counter == 0) {
+                s1 = 11;
+            } else if (counter == 1) {
+                s2 = 11;
+            } else if (counter == 2) {
+                s3 = 11;
+            } else if (counter == 3) {
+                s4 = 11;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 13
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][3] == 2) {
+            if (counter == 0) {
+                s1 = 13;
+            } else if (counter == 1) {
+                s2 = 13;
+            } else if (counter == 2) {
+                s3 = 13;
+            } else if (counter == 3) {
+                s4 = 13;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 15
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][5] == 2) {
+            if (counter == 0) {
+                s1 = 15;
+            } else if (counter == 1) {
+                s2 = 15;
+            } else if (counter == 2) {
+                s3 = 15;
+            } else if (counter == 3) {
+                s4 = 15;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 17
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][7] == 2) {
+            if (counter == 0) {
+                s1 = 17;
+            } else if (counter == 1) {
+                s2 = 17;
+            } else if (counter == 2) {
+                s3 = 17;
+            } else if (counter == 3) {
+                s4 = 17;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 21
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][1] == 2) {
+            if (counter == 0) {
+                s1 = 21;
+            } else if (counter == 1) {
+                s2 = 21;
+            } else if (counter == 2) {
+                s3 = 21;
+            } else if (counter == 3) {
+                s4 = 21;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 23
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][3] == 2) {
+            if (counter == 0) {
+                s1 = 23;
+            } else if (counter == 1) {
+                s2 = 23;
+            } else if (counter == 2) {
+                s3 = 23;
+            } else if (counter == 3) {
+                s4 = 23;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 25
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][5] == 2) {
+            if (counter == 0) {
+                s1 = 25;
+            } else if (counter == 1) {
+                s2 = 25;
+            } else if (counter == 2) {
+                s3 = 25;
+            } else if (counter == 3) {
+                s4 = 25;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 27
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][7] == 2) {
+            if (counter == 0) {
+                s1 = 27;
+            } else if (counter == 1) {
+                s2 = 27;
+            } else if (counter == 2) {
+                s3 = 27;
+            } else if (counter == 3) {
+                s4 = 27;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 31
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][1] == 2) {
+            if (counter == 0) {
+                s1 = 31;
+            } else if (counter == 1) {
+                s2 = 31;
+            } else if (counter == 2) {
+                s3 = 31;
+            } else if (counter == 3) {
+                s4 = 31;
+                
+            }            
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 33
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][3] == 2) {
+            if (counter == 0) {
+                s1 = 33;
+            } else if (counter == 1) {
+                s2 = 33;
+            } else if (counter == 2) {
+                s3 = 33;
+            } else if (counter == 3) {
+                s4 = 33;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 35
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][5] == 2) {
+            if (counter == 0) {
+                s1 = 35;
+            } else if (counter == 1) {
+                s2 = 35;
+            } else if (counter == 2) {
+                s3 = 35;
+            } else if (counter == 3) {
+                s4 = 35;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 37
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][7] == 2) {
+            if (counter == 0) {
+                s1 = 37;
+            } else if (counter == 1) {
+                s2 = 37;
+            } else if (counter == 2) {
+                s3 = 37;
+            } else if (counter == 3) {
+                s4 = 37;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 41
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][1] == 2) {
+            if (counter == 0) {
+                s1 = 41;
+            } else if (counter == 1) {
+                s2 = 41;
+            } else if (counter == 2) {
+                s3 = 41;
+            } else if (counter == 3) {
+                s4 = 41;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 43
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][3] == 2) {
+            if (counter == 0) {
+                s1 = 43;
+            } else if (counter == 1) {
+                s2 = 43;
+            } else if (counter == 2) {
+                s3 = 43;
+            } else if (counter == 3) {
+                s4 = 43;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 45
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][5] == 2) {
+            if (counter == 0) {
+                s1 = 45;
+            } else if (counter == 1) {
+                s2 = 45;
+            } else if (counter == 2) {
+                s3 = 45;
+            } else if (counter == 3) {
+                s4 = 45;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 47
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][7] == 2) {
+            if (counter == 0) {
+                s1 = 47;
+            } else if (counter == 1) {
+                s2 = 47;
+            } else if (counter == 2) {
+                s3 = 47;
+            } else if (counter == 3) {
+                s4 = 47;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 51
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][1] == 2) {
+            if (counter == 0) {
+                s1 = 51;
+            } else if (counter == 1) {
+                s2 = 51;
+            } else if (counter == 2) {
+                s3 = 51;
+            } else if (counter == 3) {
+                s4 = 51;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 53
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][3] == 2) {
+            if (counter == 0) {
+                s1 = 53;
+            } else if (counter == 1) {
+                s2 = 53;
+            } else if (counter == 2) {
+                s3 = 53;
+            } else if (counter == 3) {
+                s4 = 53;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 55
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][5] == 2) {
+            if (counter == 0) {
+                s1 = 55;
+            } else if (counter == 1) {
+                s2 = 55;
+            } else if (counter == 2) {
+                s3 = 55;
+            } else if (counter == 3) {
+                s4 = 55;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //FINALLY Search on 57
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][7] == 2) {
+            if (counter == 0) {
+                s1 = 57;
+            } else if (counter == 1) {
+                s2 = 57;
+            } else if (counter == 2) {
+                s3 = 57;
+            } else if (counter == 3) {
+                s4 = 57;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Display the white ones
+        System.out.println("check" + s1 + " " + s2 + " " + s3 + " " + s4);
+        // </editor-fold>
+
+        //find and send the blue piece to WhiteBlue claass
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        int[] blue = new int[2];
+        //check to see if s1 is blue or not
+        //check for blue in the 00's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 01) {
+            if (white[4][3] == 3) {
+                blue[0] = 4;
+                blue[1] = 3;
+            }
+        }
+        if (s1 == 03) {
+            if (white[3][5] == 3) {
+                blue[0] = 3;
+                blue[1] = 5;
+            }
+        }
+        if (s1 == 05) {
+            if (white[1][3] == 3) {
+                blue[0] = 1;
+                blue[1] = 3;
+            }
+        }
+        if (s1 == 07) {
+            if (white[5][3] == 3) {
+                blue[0] = 5;
+                blue[1] = 3;
+            }
+        }
+
+        //this is a checkpoint S2
+        if (s2 == 01) {
+            if (white[4][3] == 3) {
+                blue[0] = 4;
+                blue[1] = 3;
+            }
+        }
+        if (s2 == 03) {
+            if (white[3][5] == 3) {
+                blue[0] = 3;
+                blue[1] = 5;
+            }
+        }
+        if (s2 == 05) {
+            if (white[1][3] == 3) {
+                blue[0] = 1;
+                blue[1] = 3;
+            }
+        }
+        if (s2 == 07) {
+            if (white[5][3] == 3) {
+                blue[0] = 5;
+                blue[1] = 3;
+            }
+        }
+        //checkpoint 03
+        if (s3 == 01) {
+            if (white[4][3] == 3) {
+                blue[0] = 4;
+                blue[1] = 3;
+            }
+        }
+        if (s3 == 03) {
+            if (white[3][5] == 3) {
+                blue[0] = 3;
+                blue[1] = 5;
+            }
+        }
+        if (s3 == 05) {
+            if (white[1][3] == 3) {
+                blue[0] = 1;
+                blue[1] = 3;
+            }
+        }
+        if (s3 == 07) {
+            if (white[5][3] == 3) {
+                blue[0] = 5;
+                blue[1] = 3;
+            }
+        }
+        //checkpoint 04
+        if (s4 == 01) {
+            if (white[4][3] == 3) {
+                blue[0] = 4;
+                blue[1] = 3;
+            }
+        }
+        if (s4 == 03) {
+            if (white[3][5] == 3) {
+                blue[0] = 3;
+                blue[1] = 5;
+            }
+        }
+        if (s4 == 05) {
+            if (white[1][3] == 3) {
+                blue[0] = 1;
+                blue[1] = 3;
+            }
+        }
+        if (s4 == 07) {
+            if (white[5][3] == 3) {
+                blue[0] = 5;
+                blue[1] = 3;
+            }
+        }
+//</editor-fold>
+        //Check for blue in the 10's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 11) {
+            if (white[4][7] == 3) {
+                blue[0] = 4;
+                blue[1] = 7;
+            }
+        }
+        if (s1 == 13) {
+            if (white[0][5] == 3) {
+                blue[0] = 0;
+                blue[1] = 5;
+            }
+        }
+        if (s1 == 15) {
+            if (white[2][3] == 3) {
+                blue[0] = 2;
+                blue[1] = 3;
+            }
+        }
+        if (s1 == 17) {
+            if (white[5][1] == 3) {
+                blue[0] = 5;
+                blue[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 11) {
+            if (white[4][7] == 3) {
+                blue[0] = 4;
+                blue[1] = 7;
+            }
+        }
+        if (s2 == 13) {
+            if (white[0][5] == 3) {
+                blue[0] = 0;
+                blue[1] = 5;
+            }
+        }
+        if (s2 == 15) {
+            if (white[2][3] == 3) {
+                blue[0] = 2;
+                blue[1] = 3;
+            }
+        }
+        if (s2 == 17) {
+            if (white[5][1] == 3) {
+                blue[0] = 5;
+                blue[1] = 1;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 11) {
+            if (white[4][7] == 3) {
+                blue[0] = 4;
+                blue[1] = 7;
+            }
+        }
+        if (s3 == 13) {
+            if (white[0][5] == 3) {
+                blue[0] = 0;
+                blue[1] = 5;
+            }
+        }
+        if (s3 == 15) {
+            if (white[2][3] == 3) {
+                blue[0] = 2;
+                blue[1] = 3;
+            }
+        }
+        if (s3 == 17) {
+            if (white[5][1] == 3) {
+                blue[0] = 5;
+                blue[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 11) {
+            if (white[4][7] == 3) {
+                blue[0] = 4;
+                blue[1] = 7;
+            }
+        }
+        if (s4 == 13) {
+            if (white[0][5] == 3) {
+                blue[0] = 0;
+                blue[1] = 5;
+            }
+        }
+        if (s4 == 15) {
+            if (white[2][3] == 3) {
+                blue[0] = 2;
+                blue[1] = 3;
+            }
+        }
+        if (s4 == 17) {
+            if (white[5][1] == 3) {
+                blue[0] = 5;
+                blue[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for Blue in the 20's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 21) {
+            if (white[4][5] == 3) {
+                blue[0] = 4;
+                blue[1] = 5;
+            }
+        }
+        if (s1 == 23) {
+            if (white[1][5] == 3) {
+                blue[0] = 1;
+                blue[1] = 5;
+            }
+        }
+        if (s1 == 25) {
+            if (white[3][3] == 3) {
+                blue[0] = 3;
+                blue[1] = 3;
+            }
+        }
+        if (s1 == 27) {
+            if (white[5][5] == 3) {
+                blue[0] = 5;
+                blue[1] = 5;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 21) {
+            if (white[4][5] == 3) {
+                blue[0] = 4;
+                blue[1] = 5;
+            }
+        }
+        if (s2 == 23) {
+            if (white[1][5] == 3) {
+                blue[0] = 1;
+                blue[1] = 5;
+            }
+        }
+        if (s2 == 25) {
+            if (white[3][3] == 3) {
+                blue[0] = 3;
+                blue[1] = 3;
+            }
+        }
+        if (s2 == 27) {
+            if (white[5][5] == 3) {
+                blue[0] = 5;
+                blue[1] = 5;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 21) {
+            if (white[4][5] == 3) {
+                blue[0] = 4;
+                blue[1] = 5;
+            }
+        }
+        if (s3 == 23) {
+            if (white[1][5] == 3) {
+                blue[0] = 1;
+                blue[1] = 5;
+            }
+        }
+        if (s3 == 25) {
+            if (white[3][3] == 3) {
+                blue[0] = 3;
+                blue[1] = 3;
+            }
+        }
+        if (s3 == 27) {
+            if (white[5][5] == 3) {
+                blue[0] = 5;
+                blue[1] = 5;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 21) {
+            if (white[4][5] == 3) {
+                blue[0] = 4;
+                blue[1] = 5;
+            }
+        }
+        if (s4 == 23) {
+            if (white[1][5] == 3) {
+                blue[0] = 1;
+                blue[1] = 5;
+            }
+        }
+        if (s4 == 25) {
+            if (white[3][3] == 3) {
+                blue[0] = 3;
+                blue[1] = 3;
+            }
+        }
+        if (s4 == 27) {
+            if (white[5][5] == 3) {
+                blue[0] = 5;
+                blue[1] = 5;
+            }
+        }
+//</editor-fold>
+        //Check for blue in the 30's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 31) {
+            if (white[4][1] == 3) {
+                blue[0] = 4;
+                blue[1] = 1;
+            }
+        }
+        if (s1 == 33) {
+            if (white[2][5] == 3) {
+                blue[0] = 2;
+                blue[1] = 5;
+            }
+        }
+        if (s1 == 35) {
+            if (white[0][3] == 3) {
+                blue[0] = 0;
+                blue[1] = 3;
+            }
+        }
+        if (s1 == 37) {
+            if (white[5][7] == 3) {
+                blue[0] = 5;
+                blue[1] = 7;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 31) {
+            if (white[4][1] == 3) {
+                blue[0] = 4;
+                blue[1] = 1;
+            }
+        }
+        if (s2 == 33) {
+            if (white[2][5] == 3) {
+                blue[0] = 2;
+                blue[1] = 5;
+            }
+        }
+        if (s2 == 35) {
+            if (white[0][3] == 3) {
+                blue[0] = 0;
+                blue[1] = 3;
+            }
+        }
+        if (s2 == 37) {
+            if (white[5][7] == 3) {
+                blue[0] = 5;
+                blue[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 31) {
+            if (white[4][1] == 3) {
+                blue[0] = 4;
+                blue[1] = 1;
+            }
+        }
+        if (s3 == 33) {
+            if (white[2][5] == 3) {
+                blue[0] = 2;
+                blue[1] = 5;
+            }
+        }
+        if (s3 == 35) {
+            if (white[0][3] == 3) {
+                blue[0] = 0;
+                blue[1] = 3;
+            }
+        }
+        if (s3 == 37) {
+            if (white[5][7] == 3) {
+                blue[0] = 5;
+                blue[1] = 7;
+            }
+        }
+        //checpoint s4
+        if (s4 == 31) {
+            if (white[4][1] == 3) {
+                blue[0] = 4;
+                blue[1] = 1;
+            }
+        }
+        if (s4 == 33) {
+            if (white[2][5] == 3) {
+                blue[0] = 2;
+                blue[1] = 5;
+            }
+        }
+        if (s4 == 35) {
+            if (white[0][3] == 3) {
+                blue[0] = 0;
+                blue[1] = 3;
+            }
+        }
+        if (s4 == 37) {
+            if (white[5][7] == 3) {
+                blue[0] = 5;
+                blue[1] = 7;
+            }
+        }
+//</editor-fold>
+        //Check for blue in the 40's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 41) {
+            if (white[3][1] == 3) {
+                blue[0] = 3;
+                blue[1] = 1;
+            }
+        }
+        if (s1 == 43) {
+            if (white[0][1] == 3) {
+                blue[0] = 0;
+                blue[1] = 1;
+            }
+        }
+        if (s1 == 45) {
+            if (white[2][1] == 3) {
+                blue[0] = 2;
+                blue[1] = 1;
+            }
+        }
+        if (s1 == 47) {
+            if (white[1][1] == 3) {
+                blue[0] = 1;
+                blue[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 41) {
+            if (white[3][1] == 3) {
+                blue[0] = 3;
+                blue[1] = 1;
+            }
+        }
+        if (s2 == 43) {
+            if (white[0][1] == 3) {
+                blue[0] = 0;
+                blue[1] = 1;
+            }
+        }
+        if (s2 == 45) {
+            if (white[2][1] == 3) {
+                blue[0] = 2;
+                blue[1] = 1;
+            }
+        }
+        if (s2 == 47) {
+            if (white[1][1] == 3) {
+                blue[0] = 1;
+                blue[1] = 1;
+            }
+        }
+        //checkplint s3
+        if (s3 == 41) {
+            if (white[3][1] == 3) {
+                blue[0] = 3;
+                blue[1] = 1;
+            }
+        }
+        if (s3 == 43) {
+            if (white[0][1] == 3) {
+                blue[0] = 0;
+                blue[1] = 1;
+            }
+        }
+        if (s3 == 45) {
+            if (white[2][1] == 3) {
+                blue[0] = 2;
+                blue[1] = 1;
+            }
+        }
+        if (s3 == 47) {
+            if (white[1][1] == 3) {
+                blue[0] = 1;
+                blue[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 41) {
+            if (white[3][1] == 3) {
+                blue[0] = 3;
+                blue[1] = 1;
+            }
+        }
+        if (s4 == 43) {
+            if (white[0][1] == 3) {
+                blue[0] = 0;
+                blue[1] = 1;
+            }
+        }
+        if (s4 == 45) {
+            if (white[2][1] == 3) {
+                blue[0] = 2;
+                blue[1] = 1;
+            }
+        }
+        if (s4 == 47) {
+            if (white[1][1] == 3) {
+                blue[0] = 1;
+                blue[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for blue in the 50's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 51) {
+            if (white[1][7] == 3) {
+                blue[0] = 1;
+                blue[1] = 7;
+            }
+        }
+        if (s1 == 53) {
+            if (white[0][7] == 3) {
+                blue[0] = 0;
+                blue[1] = 7;
+            }
+        }
+        if (s1 == 55) {
+            if (white[2][7] == 3) {
+                blue[0] = 2;
+                blue[1] = 7;
+            }
+        }
+        if (s1 == 57) {
+            if (white[3][7] == 3) {
+                blue[0] = 3;
+                blue[1] = 7;
+            }
+        }
+        //checkpoint 2
+        if (s2 == 51) {
+            if (white[1][7] == 3) {
+                blue[0] = 1;
+                blue[1] = 7;
+            }
+        }
+        if (s2 == 53) {
+            if (white[0][7] == 3) {
+                blue[0] = 0;
+                blue[1] = 7;
+            }
+        }
+        if (s2 == 55) {
+            if (white[2][7] == 3) {
+                blue[0] = 2;
+                blue[1] = 7;
+            }
+        }
+        if (s2 == 57) {
+            if (white[3][7] == 3) {
+                blue[0] = 3;
+                blue[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 51) {
+            if (white[1][7] == 3) {
+                blue[0] = 1;
+                blue[1] = 7;
+            }
+        }
+        if (s3 == 53) {
+            if (white[0][7] == 3) {
+                blue[0] = 0;
+                blue[1] = 7;
+            }
+        }
+        if (s3 == 55) {
+            if (white[2][7] == 3) {
+                blue[0] = 2;
+                blue[1] = 7;
+            }
+        }
+        if (s3 == 57) {
+            if (white[3][7] == 3) {
+                blue[0] = 3;
+                blue[1] = 7;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 51) {
+            if (white[1][7] == 3) {
+                blue[0] = 1;
+                blue[1] = 7;
+            }
+        }
+        if (s4 == 53) {
+            if (white[0][7] == 3) {
+                blue[0] = 0;
+                blue[1] = 7;
+            }
+        }
+        if (s4 == 55) {
+            if (white[2][7] == 3) {
+                blue[0] = 2;
+                blue[1] = 7;
+            }
+        }
+        if (s4 == 57) {
+            if (white[3][7] == 3) {
+                blue[0] = 3;
+                blue[1] = 7;
+            }
+        }
+//</editor-fold>
+
+        //what is being given is the place of the blue and thus the blue should be moved to its correct spot
+        white = WhiteBlue(white, blue);
+        //</editor-fold>
+
+        /*you have to refind the white becasue after the cube colors get moved 
+         the colors for the cube gets moved*/
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        counter = 0;
+        //Search on 01
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][1] == 2) {
+            System.out.println("CHECK");
+            if (counter == 0) {
+                s1 = 01;
+            } else if (counter == 1) {
+                s2 = 01;
+            } else if (counter == 2) {
+                s3 = 01;
+            } else if (counter == 3) {
+                s4 = 01;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 03
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][3] == 2) {
+            if (counter == 0) {
+                s1 = 03;
+            } else if (counter == 1) {
+                s2 = 03;
+            } else if (counter == 2) {
+                s3 = 03;
+            } else if (counter == 3) {
+                s4 = 03;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 05
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][5] == 2) {
+            if (counter == 0) {
+                s1 = 05;
+            } else if (counter == 1) {
+                s2 = 05;
+            } else if (counter == 2) {
+                s3 = 05;
+            } else if (counter == 3) {
+                s4 = 05;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 07
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][7] == 2) {
+            if (counter == 0) {
+                s1 = 07;
+            } else if (counter == 1) {
+                s2 = 07;
+            } else if (counter == 2) {
+                s3 = 07;
+            } else if (counter == 3) {
+                s4 = 07;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 11
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][1] == 2) {
+            if (counter == 0) {
+                s1 = 11;
+            } else if (counter == 1) {
+                s2 = 11;
+            } else if (counter == 2) {
+                s3 = 11;
+            } else if (counter == 3) {
+                s4 = 11;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 13
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][3] == 2) {
+            if (counter == 0) {
+                s1 = 13;
+            } else if (counter == 1) {
+                s2 = 13;
+            } else if (counter == 2) {
+                s3 = 13;
+            } else if (counter == 3) {
+                s4 = 13;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 15
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][5] == 2) {
+            if (counter == 0) {
+                s1 = 15;
+            } else if (counter == 1) {
+                s2 = 15;
+            } else if (counter == 2) {
+                s3 = 15;
+            } else if (counter == 3) {
+                s4 = 15;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 17
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][7] == 2) {
+            if (counter == 0) {
+                s1 = 17;
+            } else if (counter == 1) {
+                s2 = 17;
+            } else if (counter == 2) {
+                s3 = 17;
+            } else if (counter == 3) {
+                s4 = 17;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 21
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][1] == 2) {
+            if (counter == 0) {
+                s1 = 21;
+            } else if (counter == 1) {
+                s2 = 21;
+            } else if (counter == 2) {
+                s3 = 21;
+            } else if (counter == 3) {
+                s4 = 21;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 23
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][3] == 2) {
+            if (counter == 0) {
+                s1 = 23;
+            } else if (counter == 1) {
+                s2 = 23;
+            } else if (counter == 2) {
+                s3 = 23;
+            } else if (counter == 3) {
+                s4 = 23;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 25
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][5] == 2) {
+            if (counter == 0) {
+                s1 = 25;
+            } else if (counter == 1) {
+                s2 = 25;
+            } else if (counter == 2) {
+                s3 = 25;
+            } else if (counter == 3) {
+                s4 = 25;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 27
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][7] == 2) {
+            if (counter == 0) {
+                s1 = 27;
+            } else if (counter == 1) {
+                s2 = 27;
+            } else if (counter == 2) {
+                s3 = 27;
+            } else if (counter == 3) {
+                s4 = 27;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 31
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][1] == 2) {
+            if (counter == 0) {
+                s1 = 31;
+            } else if (counter == 1) {
+                s2 = 31;
+            } else if (counter == 2) {
+                s3 = 31;
+            } else if (counter == 3) {
+                s4 = 31;
+                
+            }            
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 33
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][3] == 2) {
+            if (counter == 0) {
+                s1 = 33;
+            } else if (counter == 1) {
+                s2 = 33;
+            } else if (counter == 2) {
+                s3 = 33;
+            } else if (counter == 3) {
+                s4 = 33;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 35
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][5] == 2) {
+            if (counter == 0) {
+                s1 = 35;
+            } else if (counter == 1) {
+                s2 = 35;
+            } else if (counter == 2) {
+                s3 = 35;
+            } else if (counter == 3) {
+                s4 = 35;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 37
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][7] == 2) {
+            if (counter == 0) {
+                s1 = 37;
+            } else if (counter == 1) {
+                s2 = 37;
+            } else if (counter == 2) {
+                s3 = 37;
+            } else if (counter == 3) {
+                s4 = 37;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 41
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][1] == 2) {
+            if (counter == 0) {
+                s1 = 41;
+            } else if (counter == 1) {
+                s2 = 41;
+            } else if (counter == 2) {
+                s3 = 41;
+            } else if (counter == 3) {
+                s4 = 41;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 43
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][3] == 2) {
+            if (counter == 0) {
+                s1 = 43;
+            } else if (counter == 1) {
+                s2 = 43;
+            } else if (counter == 2) {
+                s3 = 43;
+            } else if (counter == 3) {
+                s4 = 43;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 45
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][5] == 2) {
+            if (counter == 0) {
+                s1 = 45;
+            } else if (counter == 1) {
+                s2 = 45;
+            } else if (counter == 2) {
+                s3 = 45;
+            } else if (counter == 3) {
+                s4 = 45;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 47
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][7] == 2) {
+            if (counter == 0) {
+                s1 = 47;
+            } else if (counter == 1) {
+                s2 = 47;
+            } else if (counter == 2) {
+                s3 = 47;
+            } else if (counter == 3) {
+                s4 = 47;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 51
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][1] == 2) {
+            if (counter == 0) {
+                s1 = 51;
+            } else if (counter == 1) {
+                s2 = 51;
+            } else if (counter == 2) {
+                s3 = 51;
+            } else if (counter == 3) {
+                s4 = 51;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 53
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][3] == 2) {
+            if (counter == 0) {
+                s1 = 53;
+            } else if (counter == 1) {
+                s2 = 53;
+            } else if (counter == 2) {
+                s3 = 53;
+            } else if (counter == 3) {
+                s4 = 53;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 55
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][5] == 2) {
+            if (counter == 0) {
+                s1 = 55;
+            } else if (counter == 1) {
+                s2 = 55;
+            } else if (counter == 2) {
+                s3 = 55;
+            } else if (counter == 3) {
+                s4 = 55;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //FINALLY Search on 57
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][7] == 2) {
+            if (counter == 0) {
+                s1 = 57;
+            } else if (counter == 1) {
+                s2 = 57;
+            } else if (counter == 2) {
+                s3 = 57;
+            } else if (counter == 3) {
+                s4 = 57;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+// </editor-fold>
+        //find and sent the orange piece to WhiteOrange class
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        int[] orange = new int[3];
+        //check to see if s1 is orange or not
+
+        //check for orange in the 00's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 01) {
+            if (white[4][3] == 5) {
+                orange[0] = 4;
+                orange[1] = 3;
+            }
+        }
+        if (s1 == 03) {
+            if (white[3][5] == 5) {
+                orange[0] = 3;
+                orange[1] = 5;
+            }
+        }
+        if (s1 == 05) {
+            if (white[1][3] == 5) {
+                orange[0] = 1;
+                orange[1] = 3;
+            }
+        }
+        if (s1 == 07) {
+            if (white[5][3] == 5) {
+                orange[0] = 5;
+                orange[1] = 3;
+            }
+        }
+
+        //this is a checkpoint S2
+        if (s2 == 01) {
+            if (white[4][3] == 5) {
+                orange[0] = 4;
+                orange[1] = 3;
+            }
+        }
+        if (s2 == 03) {
+            if (white[3][5] == 5) {
+                orange[0] = 3;
+                orange[1] = 5;
+            }
+        }
+        if (s2 == 05) {
+            if (white[1][3] == 5) {
+                orange[0] = 1;
+                orange[1] = 3;
+            }
+        }
+        if (s2 == 07) {
+            if (white[5][3] == 5) {
+                orange[0] = 5;
+                orange[1] = 3;
+            }
+        }
+        //checkpoint 03
+        if (s3 == 01) {
+            if (white[4][3] == 5) {
+                orange[0] = 4;
+                orange[1] = 3;
+            }
+        }
+        if (s3 == 03) {
+            if (white[3][5] == 5) {
+                orange[0] = 3;
+                orange[1] = 5;
+            }
+        }
+        if (s3 == 05) {
+            if (white[1][3] == 5) {
+                orange[0] = 1;
+                orange[1] = 3;
+            }
+        }
+        if (s3 == 07) {
+            if (white[5][3] == 5) {
+                orange[0] = 5;
+                orange[1] = 3;
+            }
+        }
+        //checkpoint 04
+        if (s4 == 01) {
+            if (white[4][3] == 5) {
+                orange[0] = 4;
+                orange[1] = 3;
+            }
+        }
+        if (s4 == 03) {
+            if (white[3][5] == 5) {
+                orange[0] = 3;
+                orange[1] = 5;
+            }
+        }
+        if (s4 == 05) {
+            if (white[1][3] == 5) {
+                orange[0] = 1;
+                orange[1] = 3;
+            }
+        }
+        if (s4 == 07) {
+            if (white[5][3] == 5) {
+                orange[0] = 5;
+                orange[1] = 3;
+            }
+        }
+//</editor-fold>
+        //Check for orange in the 10's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 11) {
+            if (white[4][7] == 5) {
+                orange[0] = 4;
+                orange[1] = 7;
+            }
+        }
+        if (s1 == 13) {
+            if (white[0][5] == 5) {
+                orange[0] = 0;
+                orange[1] = 5;
+            }
+        }
+        if (s1 == 15) {
+            if (white[2][3] == 5) {
+                orange[0] = 2;
+                orange[1] = 3;
+            }
+        }
+        if (s1 == 17) {
+            if (white[5][1] == 5) {
+                orange[0] = 5;
+                orange[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 11) {
+            if (white[4][7] == 5) {
+                orange[0] = 4;
+                orange[1] = 7;
+            }
+        }
+        if (s2 == 13) {
+            if (white[0][5] == 5) {
+                orange[0] = 0;
+                orange[1] = 5;
+            }
+        }
+        if (s2 == 15) {
+            if (white[2][3] == 5) {
+                orange[0] = 2;
+                orange[1] = 3;
+            }
+        }
+        if (s2 == 17) {
+            if (white[5][1] == 5) {
+                orange[0] = 5;
+                orange[1] = 1;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 11) {
+            if (white[4][7] == 5) {
+                orange[0] = 4;
+                orange[1] = 7;
+            }
+        }
+        if (s3 == 13) {
+            if (white[0][5] == 5) {
+                orange[0] = 0;
+                orange[1] = 5;
+            }
+        }
+        if (s3 == 15) {
+            if (white[2][3] == 5) {
+                orange[0] = 2;
+                orange[1] = 3;
+            }
+        }
+        if (s3 == 17) {
+            if (white[5][1] == 5) {
+                orange[0] = 5;
+                orange[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 11) {
+            if (white[4][7] == 5) {
+                orange[0] = 4;
+                orange[1] = 7;
+            }
+        }
+        if (s4 == 13) {
+            if (white[0][5] == 5) {
+                orange[0] = 0;
+                orange[1] = 5;
+            }
+        }
+        if (s4 == 15) {
+            if (white[2][3] == 5) {
+                orange[0] = 2;
+                orange[1] = 3;
+            }
+        }
+        if (s4 == 17) {
+            if (white[5][1] == 5) {
+                orange[0] = 5;
+                orange[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for Orange in the 20's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 21) {
+            if (white[4][5] == 5) {
+                orange[0] = 4;
+                orange[1] = 5;
+            }
+        }
+        if (s1 == 23) {
+            if (white[1][5] == 5) {
+                orange[0] = 1;
+                orange[1] = 5;
+            }
+        }
+        if (s1 == 25) {
+            if (white[3][3] == 5) {
+                orange[0] = 3;
+                orange[1] = 3;
+            }
+        }
+        if (s1 == 27) {
+            if (white[5][5] == 5) {
+                orange[0] = 5;
+                orange[1] = 5;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 21) {
+            if (white[4][5] == 5) {
+                orange[0] = 4;
+                orange[1] = 5;
+            }
+        }
+        if (s2 == 23) {
+            if (white[1][5] == 5) {
+                orange[0] = 1;
+                orange[1] = 5;
+            }
+        }
+        if (s2 == 25) {
+            if (white[3][3] == 5) {
+                orange[0] = 3;
+                orange[1] = 3;
+            }
+        }
+        if (s2 == 27) {
+            if (white[5][5] == 5) {
+                orange[0] = 5;
+                orange[1] = 5;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 21) {
+            if (white[4][5] == 5) {
+                orange[0] = 4;
+                orange[1] = 5;
+            }
+        }
+        if (s3 == 23) {
+            if (white[1][5] == 5) {
+                orange[0] = 1;
+                orange[1] = 5;
+            }
+        }
+        if (s3 == 25) {
+            if (white[3][3] == 5) {
+                orange[0] = 3;
+                orange[1] = 3;
+            }
+        }
+        System.out.println("First");
+        if (s3 == 27) {
+            System.out.println("Second");
+            System.out.println(white[5][5]);
+            if (white[5][5] == 5) {
+                System.out.println("Third");
+                orange[0] = 5;
+                orange[1] = 5;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 21) {
+            if (white[4][5] == 5) {
+                orange[0] = 4;
+                orange[1] = 5;
+            }
+        }
+        if (s4 == 23) {
+            if (white[1][5] == 5) {
+                orange[0] = 1;
+                orange[1] = 5;
+            }
+        }
+        if (s4 == 25) {
+            if (white[3][3] == 5) {
+                orange[0] = 3;
+                orange[1] = 3;
+            }
+        }
+        if (s4 == 27) {
+            if (white[5][5] == 5) {
+                orange[0] = 5;
+                orange[1] = 5;
+            }
+        }
+//</editor-fold>
+        //Check for orange in the 30's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 31) {
+            if (white[4][1] == 5) {
+                orange[0] = 4;
+                orange[1] = 1;
+            }
+        }
+        if (s1 == 33) {
+            if (white[2][5] == 5) {
+                orange[0] = 2;
+                orange[1] = 5;
+            }
+        }
+        if (s1 == 35) {
+            if (white[0][3] == 5) {
+                orange[0] = 0;
+                orange[1] = 3;
+            }
+        }
+        if (s1 == 37) {
+            if (white[5][7] == 5) {
+                orange[0] = 5;
+                orange[1] = 7;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 31) {
+            if (white[4][1] == 5) {
+                orange[0] = 4;
+                orange[1] = 1;
+            }
+        }
+        if (s2 == 33) {
+            if (white[2][5] == 5) {
+                orange[0] = 2;
+                orange[1] = 5;
+            }
+        }
+        if (s2 == 35) {
+            if (white[0][3] == 5) {
+                orange[0] = 0;
+                orange[1] = 3;
+            }
+        }
+        if (s2 == 37) {
+            if (white[5][7] == 5) {
+                orange[0] = 5;
+                orange[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 31) {
+            if (white[4][1] == 5) {
+                orange[0] = 4;
+                orange[1] = 1;
+            }
+        }
+        if (s3 == 33) {
+            if (white[2][5] == 5) {
+                orange[0] = 2;
+                orange[1] = 5;
+            }
+        }
+        if (s3 == 35) {
+            if (white[0][3] == 5) {
+                orange[0] = 0;
+                orange[1] = 3;
+            }
+        }
+        if (s3 == 37) {
+            if (white[5][7] == 5) {
+                orange[0] = 5;
+                orange[1] = 7;
+            }
+        }
+        //checpoint s4
+        if (s4 == 31) {
+            if (white[4][1] == 5) {
+                orange[0] = 4;
+                orange[1] = 1;
+            }
+        }
+        if (s4 == 33) {
+            if (white[2][5] == 5) {
+                orange[0] = 2;
+                orange[1] = 5;
+            }
+        }
+        if (s4 == 35) {
+            if (white[0][3] == 5) {
+                orange[0] = 0;
+                orange[1] = 3;
+            }
+        }
+        if (s4 == 37) {
+            if (white[5][7] == 5) {
+                orange[0] = 5;
+                orange[1] = 7;
+            }
+        }
+//</editor-fold>
+        //Check for orange in the 40's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 41) {
+            if (white[3][1] == 5) {
+                orange[0] = 3;
+                orange[1] = 1;
+            }
+        }
+        if (s1 == 43) {
+            if (white[0][1] == 5) {
+                orange[0] = 0;
+                orange[1] = 1;
+            }
+        }
+        if (s1 == 45) {
+            if (white[2][1] == 5) {
+                orange[0] = 2;
+                orange[1] = 1;
+            }
+        }
+        if (s1 == 47) {
+            if (white[1][1] == 5) {
+                orange[0] = 1;
+                orange[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 41) {
+            if (white[3][1] == 5) {
+                orange[0] = 3;
+                orange[1] = 1;
+            }
+        }
+        if (s2 == 43) {
+            if (white[0][1] == 5) {
+                orange[0] = 0;
+                orange[1] = 1;
+            }
+        }
+        if (s2 == 45) {
+            if (white[2][1] == 5) {
+                orange[0] = 2;
+                orange[1] = 1;
+            }
+        }
+        if (s2 == 47) {
+            if (white[1][1] == 5) {
+                orange[0] = 1;
+                orange[1] = 1;
+            }
+        }
+        //checkplint s3
+        if (s3 == 41) {
+            if (white[3][1] == 5) {
+                orange[0] = 3;
+                orange[1] = 1;
+            }
+        }
+        if (s3 == 43) {
+            if (white[0][1] == 5) {
+                orange[0] = 0;
+                orange[1] = 1;
+            }
+        }
+        if (s3 == 45) {
+            if (white[2][1] == 5) {
+                orange[0] = 2;
+                orange[1] = 1;
+            }
+        }
+        if (s3 == 47) {
+            if (white[1][1] == 5) {
+                orange[0] = 1;
+                orange[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 41) {
+            if (white[3][1] == 5) {
+                orange[0] = 3;
+                orange[1] = 1;
+            }
+        }
+        if (s4 == 43) {
+            if (white[0][1] == 5) {
+                orange[0] = 0;
+                orange[1] = 1;
+            }
+        }
+        if (s4 == 45) {
+            if (white[2][1] == 5) {
+                orange[0] = 2;
+                orange[1] = 1;
+            }
+        }
+        if (s4 == 47) {
+            if (white[1][1] == 5) {
+                orange[0] = 1;
+                orange[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for orange in the 50's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 51) {
+            if (white[1][7] == 5) {
+                orange[0] = 1;
+                orange[1] = 7;
+            }
+        }
+        if (s1 == 53) {
+            if (white[0][7] == 5) {
+                orange[0] = 0;
+                orange[1] = 7;
+            }
+        }
+        if (s1 == 55) {
+            if (white[2][7] == 5) {
+                orange[0] = 2;
+                orange[1] = 7;
+            }
+        }
+        if (s1 == 57) {
+            if (white[3][7] == 5) {
+                orange[0] = 3;
+                orange[1] = 7;
+            }
+        }
+        //checkpoint 2
+        if (s2 == 51) {
+            if (white[1][7] == 5) {
+                orange[0] = 1;
+                orange[1] = 7;
+            }
+        }
+        if (s2 == 53) {
+            if (white[0][7] == 5) {
+                orange[0] = 0;
+                orange[1] = 7;
+            }
+        }
+        if (s2 == 55) {
+            if (white[2][7] == 5) {
+                orange[0] = 2;
+                orange[1] = 7;
+            }
+        }
+        if (s2 == 57) {
+            if (white[3][7] == 5) {
+                orange[0] = 3;
+                orange[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 51) {
+            if (white[1][7] == 5) {
+                orange[0] = 1;
+                orange[1] = 7;
+            }
+        }
+        if (s3 == 53) {
+            if (white[0][7] == 5) {
+                orange[0] = 0;
+                orange[1] = 7;
+            }
+        }
+        if (s3 == 55) {
+            if (white[2][7] == 5) {
+                orange[0] = 2;
+                orange[1] = 7;
+            }
+        }
+        if (s3 == 57) {
+            if (white[3][7] == 5) {
+                orange[0] = 3;
+                orange[1] = 7;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 51) {
+            if (white[1][7] == 5) {
+                orange[0] = 1;
+                orange[1] = 7;
+            }
+        }
+        if (s4 == 53) {
+            if (white[0][7] == 5) {
+                orange[0] = 0;
+                orange[1] = 7;
+            }
+        }
+        if (s4 == 55) {
+            if (white[2][7] == 5) {
+                orange[0] = 2;
+                orange[1] = 7;
+            }
+        }
+        if (s4 == 57) {
+            if (white[3][7] == 5) {
+                orange[0] = 3;
+                orange[1] = 7;
+            }
+        }
+//</editor-fold>
+
+        //what is being given is the place of the orange and thus the orange should be moved to its correct spot
+        white = WhiteOrange(white, orange);
+        //</editor-fold>
+
+        /*you have to refind the white becasue after the cube colors get moved 
+         the colors for the cube gets moved*/
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        counter = 0;
+        //Search on 01
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][1] == 2) {
+            System.out.println("CHECK");
+            if (counter == 0) {
+                s1 = 01;
+            } else if (counter == 1) {
+                s2 = 01;
+            } else if (counter == 2) {
+                s3 = 01;
+            } else if (counter == 3) {
+                s4 = 01;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 03
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][3] == 2) {
+            if (counter == 0) {
+                s1 = 03;
+            } else if (counter == 1) {
+                s2 = 03;
+            } else if (counter == 2) {
+                s3 = 03;
+            } else if (counter == 3) {
+                s4 = 03;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 05
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][5] == 2) {
+            if (counter == 0) {
+                s1 = 05;
+            } else if (counter == 1) {
+                s2 = 05;
+            } else if (counter == 2) {
+                s3 = 05;
+            } else if (counter == 3) {
+                s4 = 05;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 07
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][7] == 2) {
+            if (counter == 0) {
+                s1 = 07;
+            } else if (counter == 1) {
+                s2 = 07;
+            } else if (counter == 2) {
+                s3 = 07;
+            } else if (counter == 3) {
+                s4 = 07;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 11
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][1] == 2) {
+            if (counter == 0) {
+                s1 = 11;
+            } else if (counter == 1) {
+                s2 = 11;
+            } else if (counter == 2) {
+                s3 = 11;
+            } else if (counter == 3) {
+                s4 = 11;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 13
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][3] == 2) {
+            if (counter == 0) {
+                s1 = 13;
+            } else if (counter == 1) {
+                s2 = 13;
+            } else if (counter == 2) {
+                s3 = 13;
+            } else if (counter == 3) {
+                s4 = 13;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 15
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][5] == 2) {
+            if (counter == 0) {
+                s1 = 15;
+            } else if (counter == 1) {
+                s2 = 15;
+            } else if (counter == 2) {
+                s3 = 15;
+            } else if (counter == 3) {
+                s4 = 15;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 17
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][7] == 2) {
+            if (counter == 0) {
+                s1 = 17;
+            } else if (counter == 1) {
+                s2 = 17;
+            } else if (counter == 2) {
+                s3 = 17;
+            } else if (counter == 3) {
+                s4 = 17;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 21
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][1] == 2) {
+            if (counter == 0) {
+                s1 = 21;
+            } else if (counter == 1) {
+                s2 = 21;
+            } else if (counter == 2) {
+                s3 = 21;
+            } else if (counter == 3) {
+                s4 = 21;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 23
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][3] == 2) {
+            if (counter == 0) {
+                s1 = 23;
+            } else if (counter == 1) {
+                s2 = 23;
+            } else if (counter == 2) {
+                s3 = 23;
+            } else if (counter == 3) {
+                s4 = 23;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 25
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][5] == 2) {
+            if (counter == 0) {
+                s1 = 25;
+            } else if (counter == 1) {
+                s2 = 25;
+            } else if (counter == 2) {
+                s3 = 25;
+            } else if (counter == 3) {
+                s4 = 25;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 27
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][7] == 2) {
+            if (counter == 0) {
+                s1 = 27;
+            } else if (counter == 1) {
+                s2 = 27;
+            } else if (counter == 2) {
+                s3 = 27;
+            } else if (counter == 3) {
+                s4 = 27;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 31
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][1] == 2) {
+            if (counter == 0) {
+                s1 = 31;
+            } else if (counter == 1) {
+                s2 = 31;
+            } else if (counter == 2) {
+                s3 = 31;
+            } else if (counter == 3) {
+                s4 = 31;
+                
+            }            
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 33
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][3] == 2) {
+            if (counter == 0) {
+                s1 = 33;
+            } else if (counter == 1) {
+                s2 = 33;
+            } else if (counter == 2) {
+                s3 = 33;
+            } else if (counter == 3) {
+                s4 = 33;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 35
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][5] == 2) {
+            if (counter == 0) {
+                s1 = 35;
+            } else if (counter == 1) {
+                s2 = 35;
+            } else if (counter == 2) {
+                s3 = 35;
+            } else if (counter == 3) {
+                s4 = 35;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 37
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][7] == 2) {
+            if (counter == 0) {
+                s1 = 37;
+            } else if (counter == 1) {
+                s2 = 37;
+            } else if (counter == 2) {
+                s3 = 37;
+            } else if (counter == 3) {
+                s4 = 37;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 41
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][1] == 2) {
+            if (counter == 0) {
+                s1 = 41;
+            } else if (counter == 1) {
+                s2 = 41;
+            } else if (counter == 2) {
+                s3 = 41;
+            } else if (counter == 3) {
+                s4 = 41;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 43
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][3] == 2) {
+            if (counter == 0) {
+                s1 = 43;
+            } else if (counter == 1) {
+                s2 = 43;
+            } else if (counter == 2) {
+                s3 = 43;
+            } else if (counter == 3) {
+                s4 = 43;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 45
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][5] == 2) {
+            if (counter == 0) {
+                s1 = 45;
+            } else if (counter == 1) {
+                s2 = 45;
+            } else if (counter == 2) {
+                s3 = 45;
+            } else if (counter == 3) {
+                s4 = 45;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 47
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][7] == 2) {
+            if (counter == 0) {
+                s1 = 47;
+            } else if (counter == 1) {
+                s2 = 47;
+            } else if (counter == 2) {
+                s3 = 47;
+            } else if (counter == 3) {
+                s4 = 47;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 51
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][1] == 2) {
+            if (counter == 0) {
+                s1 = 51;
+            } else if (counter == 1) {
+                s2 = 51;
+            } else if (counter == 2) {
+                s3 = 51;
+            } else if (counter == 3) {
+                s4 = 51;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 53
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][3] == 2) {
+            if (counter == 0) {
+                s1 = 53;
+            } else if (counter == 1) {
+                s2 = 53;
+            } else if (counter == 2) {
+                s3 = 53;
+            } else if (counter == 3) {
+                s4 = 53;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 55
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][5] == 2) {
+            if (counter == 0) {
+                s1 = 55;
+            } else if (counter == 1) {
+                s2 = 55;
+            } else if (counter == 2) {
+                s3 = 55;
+            } else if (counter == 3) {
+                s4 = 55;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //FINALLY Search on 57
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][7] == 2) {
+            if (counter == 0) {
+                s1 = 57;
+            } else if (counter == 1) {
+                s2 = 57;
+            } else if (counter == 2) {
+                s3 = 57;
+            } else if (counter == 3) {
+                s4 = 57;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+// </editor-fold>
+        //find and send the green piece to WhiteGreen
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        int[] green = new int[2];
+        //check to see if s1 is green or not
+        //check for green in the 00's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 01) {
+            if (white[4][3] == 1) {
+                green[0] = 4;
+                green[1] = 3;
+            }
+        }
+        if (s1 == 03) {
+            if (white[3][5] == 1) {
+                green[0] = 3;
+                green[1] = 5;
+            }
+        }
+        if (s1 == 05) {
+            if (white[1][3] == 1) {
+                green[0] = 1;
+                green[1] = 3;
+            }
+        }
+        if (s1 == 07) {
+            if (white[5][3] == 1) {
+                green[0] = 5;
+                green[1] = 3;
+            }
+        }
+
+        //this is a checkpoint S2
+        if (s2 == 01) {
+            if (white[4][3] == 1) {
+                green[0] = 4;
+                green[1] = 3;
+            }
+        }
+        if (s2 == 03) {
+            if (white[3][5] == 1) {
+                green[0] = 3;
+                green[1] = 5;
+            }
+        }
+        if (s2 == 05) {
+            if (white[1][3] == 1) {
+                green[0] = 1;
+                green[1] = 3;
+            }
+        }
+        if (s2 == 07) {
+            if (white[5][3] == 1) {
+                green[0] = 5;
+                green[1] = 3;
+            }
+        }
+        //checkpoint 03
+        if (s3 == 01) {
+            if (white[4][3] == 1) {
+                green[0] = 4;
+                green[1] = 3;
+            }
+        }
+        if (s3 == 03) {
+            if (white[3][5] == 1) {
+                green[0] = 3;
+                green[1] = 5;
+            }
+        }
+        if (s3 == 05) {
+            if (white[1][3] == 1) {
+                green[0] = 1;
+                green[1] = 3;
+            }
+        }
+        if (s3 == 07) {
+            if (white[5][3] == 1) {
+                green[0] = 5;
+                green[1] = 3;
+            }
+        }
+        //checkpoint 04
+        if (s4 == 01) {
+            if (white[4][3] == 1) {
+                green[0] = 4;
+                green[1] = 3;
+            }
+        }
+        if (s4 == 03) {
+            if (white[3][5] == 1) {
+                green[0] = 3;
+                green[1] = 5;
+            }
+        }
+        if (s4 == 05) {
+            if (white[1][3] == 1) {
+                green[0] = 1;
+                green[1] = 3;
+            }
+        }
+        if (s4 == 07) {
+            if (white[5][3] == 1) {
+                green[0] = 5;
+                green[1] = 3;
+            }
+        }
+//</editor-fold>
+        //Check for green in the 10's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 11) {
+            if (white[4][7] == 1) {
+                green[0] = 4;
+                green[1] = 7;
+            }
+        }
+        if (s1 == 13) {
+            if (white[0][5] == 1) {
+                green[0] = 0;
+                green[1] = 5;
+            }
+        }
+        if (s1 == 15) {
+            if (white[2][3] == 1) {
+                green[0] = 2;
+                green[1] = 3;
+            }
+        }
+        if (s1 == 17) {
+            if (white[5][1] == 1) {
+                green[0] = 5;
+                green[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 11) {
+            if (white[4][7] == 1) {
+                green[0] = 4;
+                green[1] = 7;
+            }
+        }
+        if (s2 == 13) {
+            if (white[0][5] == 1) {
+                green[0] = 0;
+                green[1] = 5;
+            }
+        }
+        if (s2 == 15) {
+            if (white[2][3] == 1) {
+                green[0] = 2;
+                green[1] = 3;
+            }
+        }
+        if (s2 == 17) {
+            if (white[5][1] == 1) {
+                green[0] = 5;
+                green[1] = 1;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 11) {
+            if (white[4][7] == 1) {
+                green[0] = 4;
+                green[1] = 7;
+            }
+        }
+        if (s3 == 13) {
+            if (white[0][5] == 1) {
+                green[0] = 0;
+                green[1] = 5;
+            }
+        }
+        if (s3 == 15) {
+            if (white[2][3] == 1) {
+                green[0] = 2;
+                green[1] = 3;
+            }
+        }
+        if (s3 == 17) {
+            if (white[5][1] == 1) {
+                green[0] = 5;
+                green[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 11) {
+            if (white[4][7] == 1) {
+                green[0] = 4;
+                green[1] = 7;
+            }
+        }
+        if (s4 == 13) {
+            if (white[0][5] == 1) {
+                green[0] = 0;
+                green[1] = 5;
+            }
+        }
+        if (s4 == 15) {
+            if (white[2][3] == 1) {
+                green[0] = 2;
+                green[1] = 3;
+            }
+        }
+        if (s4 == 17) {
+            if (white[5][1] == 1) {
+                green[0] = 5;
+                green[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for Green in the 20's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 21) {
+            if (white[4][5] == 1) {
+                green[0] = 4;
+                green[1] = 5;
+            }
+        }
+        if (s1 == 23) {
+            if (white[1][5] == 1) {
+                green[0] = 1;
+                green[1] = 5;
+            }
+        }
+        if (s1 == 25) {
+            if (white[3][3] == 1) {
+                green[0] = 3;
+                green[1] = 3;
+            }
+        }
+        if (s1 == 27) {
+            if (white[5][5] == 1) {
+                green[0] = 5;
+                green[1] = 5;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 21) {
+            if (white[4][5] == 1) {
+                green[0] = 4;
+                green[1] = 5;
+            }
+        }
+        if (s2 == 23) {
+            if (white[1][5] == 1) {
+                green[0] = 1;
+                green[1] = 5;
+            }
+        }
+        if (s2 == 25) {
+            if (white[3][3] == 1) {
+                green[0] = 3;
+                green[1] = 3;
+            }
+        }
+        if (s2 == 27) {
+            if (white[5][5] == 1) {
+                green[0] = 5;
+                green[1] = 5;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 21) {
+            if (white[4][5] == 1) {
+                green[0] = 4;
+                green[1] = 5;
+            }
+        }
+        if (s3 == 23) {
+            if (white[1][5] == 1) {
+                green[0] = 1;
+                green[1] = 5;
+            }
+        }
+        if (s3 == 25) {
+            if (white[3][3] == 1) {
+                green[0] = 3;
+                green[1] = 3;
+            }
+        }
+        if (s3 == 27) {
+            if (white[5][5] == 1) {
+                green[0] = 5;
+                green[1] = 5;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 21) {
+            if (white[4][5] == 1) {
+                green[0] = 4;
+                green[1] = 5;
+            }
+        }
+        if (s4 == 23) {
+            if (white[1][5] == 1) {
+                green[0] = 1;
+                green[1] = 5;
+            }
+        }
+        if (s4 == 25) {
+            if (white[3][3] == 1) {
+                green[0] = 3;
+                green[1] = 3;
+            }
+        }
+        if (s4 == 27) {
+            if (white[5][5] == 1) {
+                green[0] = 5;
+                green[1] = 5;
+            }
+        }
+//</editor-fold>
+        //Check for green in the 30's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 31) {
+            if (white[4][1] == 1) {
+                green[0] = 4;
+                green[1] = 1;
+            }
+        }
+        if (s1 == 33) {
+            if (white[2][5] == 1) {
+                green[0] = 2;
+                green[1] = 5;
+            }
+        }
+        if (s1 == 35) {
+            if (white[0][3] == 1) {
+                green[0] = 0;
+                green[1] = 3;
+            }
+        }
+        if (s1 == 37) {
+            if (white[5][7] == 1) {
+                green[0] = 5;
+                green[1] = 7;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 31) {
+            if (white[4][1] == 1) {
+                green[0] = 4;
+                green[1] = 1;
+            }
+        }
+        if (s2 == 33) {
+            if (white[2][5] == 1) {
+                green[0] = 2;
+                green[1] = 5;
+            }
+        }
+        if (s2 == 35) {
+            if (white[0][3] == 1) {
+                green[0] = 0;
+                green[1] = 3;
+            }
+        }
+        if (s2 == 37) {
+            if (white[5][7] == 1) {
+                green[0] = 5;
+                green[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 31) {
+            if (white[4][1] == 1) {
+                green[0] = 4;
+                green[1] = 1;
+            }
+        }
+        if (s3 == 33) {
+            if (white[2][5] == 1) {
+                green[0] = 2;
+                green[1] = 5;
+            }
+        }
+        if (s3 == 35) {
+            if (white[0][3] == 1) {
+                green[0] = 0;
+                green[1] = 3;
+            }
+        }
+        if (s3 == 37) {
+            if (white[5][7] == 1) {
+                green[0] = 5;
+                green[1] = 7;
+            }
+        }
+        //checpoint s4
+        if (s4 == 31) {
+            if (white[4][1] == 1) {
+                green[0] = 4;
+                green[1] = 1;
+            }
+        }
+        if (s4 == 33) {
+            if (white[2][5] == 1) {
+                green[0] = 2;
+                green[1] = 5;
+            }
+        }
+        if (s4 == 35) {
+            if (white[0][3] == 1) {
+                green[0] = 0;
+                green[1] = 3;
+            }
+        }
+        if (s4 == 37) {
+            if (white[5][7] == 1) {
+                green[0] = 5;
+                green[1] = 7;
+            }
+        }
+//</editor-fold>
+        //Check for green in the 40's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 41) {
+            if (white[3][1] == 1) {
+                green[0] = 3;
+                green[1] = 1;
+            }
+        }
+        if (s1 == 43) {
+            if (white[0][1] == 1) {
+                green[0] = 0;
+                green[1] = 1;
+            }
+        }
+        if (s1 == 45) {
+            if (white[2][1] == 1) {
+                green[0] = 2;
+                green[1] = 1;
+            }
+        }
+        if (s1 == 47) {
+            if (white[1][1] == 1) {
+                green[0] = 1;
+                green[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 41) {
+            if (white[3][1] == 1) {
+                green[0] = 3;
+                green[1] = 1;
+            }
+        }
+        if (s2 == 43) {
+            if (white[0][1] == 1) {
+                green[0] = 0;
+                green[1] = 1;
+            }
+        }
+        if (s2 == 45) {
+            if (white[2][1] == 1) {
+                green[0] = 2;
+                green[1] = 1;
+            }
+        }
+        if (s2 == 47) {
+            if (white[1][1] == 1) {
+                green[0] = 1;
+                green[1] = 1;
+            }
+        }
+        //checkplint s3
+        if (s3 == 41) {
+            if (white[3][1] == 1) {
+                green[0] = 3;
+                green[1] = 1;
+            }
+        }
+        if (s3 == 43) {
+            if (white[0][1] == 1) {
+                green[0] = 0;
+                green[1] = 1;
+            }
+        }
+        if (s3 == 45) {
+            if (white[2][1] == 1) {
+                green[0] = 2;
+                green[1] = 1;
+            }
+        }
+        if (s3 == 47) {
+            if (white[1][1] == 1) {
+                green[0] = 1;
+                green[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 41) {
+            if (white[3][1] == 1) {
+                green[0] = 3;
+                green[1] = 1;
+            }
+        }
+        if (s4 == 43) {
+            if (white[0][1] == 1) {
+                green[0] = 0;
+                green[1] = 1;
+            }
+        }
+        if (s4 == 45) {
+            if (white[2][1] == 1) {
+                green[0] = 2;
+                green[1] = 1;
+            }
+        }
+        if (s4 == 47) {
+            if (white[1][1] == 1) {
+                green[0] = 1;
+                green[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for green in the 50's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 51) {
+            if (white[1][7] == 1) {
+                green[0] = 1;
+                green[1] = 7;
+            }
+        }
+        if (s1 == 53) {
+            if (white[0][7] == 1) {
+                green[0] = 0;
+                green[1] = 7;
+            }
+        }
+        if (s1 == 55) {
+            if (white[2][7] == 1) {
+                green[0] = 2;
+                green[1] = 7;
+            }
+        }
+        if (s1 == 57) {
+            if (white[3][7] == 1) {
+                green[0] = 3;
+                green[1] = 7;
+            }
+        }
+        //checkpoint 2
+        if (s2 == 51) {
+            if (white[1][7] == 1) {
+                green[0] = 1;
+                green[1] = 7;
+            }
+        }
+        if (s2 == 53) {
+            if (white[0][7] == 1) {
+                green[0] = 0;
+                green[1] = 7;
+            }
+        }
+        if (s2 == 55) {
+            if (white[2][7] == 1) {
+                green[0] = 2;
+                green[1] = 7;
+            }
+        }
+        if (s2 == 57) {
+            if (white[3][7] == 1) {
+                green[0] = 3;
+                green[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 51) {
+            if (white[1][7] == 1) {
+                green[0] = 1;
+                green[1] = 7;
+            }
+        }
+        if (s3 == 53) {
+            if (white[0][7] == 1) {
+                green[0] = 0;
+                green[1] = 7;
+            }
+        }
+        if (s3 == 55) {
+            if (white[2][7] == 1) {
+                green[0] = 2;
+                green[1] = 7;
+            }
+        }
+        if (s3 == 57) {
+            if (white[3][7] == 1) {
+                green[0] = 3;
+                green[1] = 7;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 51) {
+            if (white[1][7] == 1) {
+                green[0] = 1;
+                green[1] = 7;
+            }
+        }
+        if (s4 == 53) {
+            if (white[0][7] == 1) {
+                green[0] = 0;
+                green[1] = 7;
+            }
+        }
+        if (s4 == 55) {
+            if (white[2][7] == 1) {
+                green[0] = 2;
+                green[1] = 7;
+            }
+        }
+        if (s4 == 57) {
+            if (white[3][7] == 1) {
+                green[0] = 3;
+                green[1] = 7;
+            }
+        }
+//</editor-fold>
+
+        //what is being given is the place of the green and thus the green should be moved to its correct spot
+        white = WhiteGreen(white, green);
+        //</editor-fold>
+
+        /*you have to refind the white becasue after the cube colors get moved 
+         the colors for the cube gets moved*/
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        counter = 0;
+        //Search on 01
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][1] == 2) {
+            System.out.println("CHECK");
+            if (counter == 0) {
+                s1 = 01;
+            } else if (counter == 1) {
+                s2 = 01;
+            } else if (counter == 2) {
+                s3 = 01;
+            } else if (counter == 3) {
+                s4 = 01;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 03
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][3] == 2) {
+            if (counter == 0) {
+                s1 = 03;
+            } else if (counter == 1) {
+                s2 = 03;
+            } else if (counter == 2) {
+                s3 = 03;
+            } else if (counter == 3) {
+                s4 = 03;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 05
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][5] == 2) {
+            if (counter == 0) {
+                s1 = 05;
+            } else if (counter == 1) {
+                s2 = 05;
+            } else if (counter == 2) {
+                s3 = 05;
+            } else if (counter == 3) {
+                s4 = 05;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 07
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[0][7] == 2) {
+            if (counter == 0) {
+                s1 = 07;
+            } else if (counter == 1) {
+                s2 = 07;
+            } else if (counter == 2) {
+                s3 = 07;
+            } else if (counter == 3) {
+                s4 = 07;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 11
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][1] == 2) {
+            if (counter == 0) {
+                s1 = 11;
+            } else if (counter == 1) {
+                s2 = 11;
+            } else if (counter == 2) {
+                s3 = 11;
+            } else if (counter == 3) {
+                s4 = 11;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 13
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][3] == 2) {
+            if (counter == 0) {
+                s1 = 13;
+            } else if (counter == 1) {
+                s2 = 13;
+            } else if (counter == 2) {
+                s3 = 13;
+            } else if (counter == 3) {
+                s4 = 13;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 15
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][5] == 2) {
+            if (counter == 0) {
+                s1 = 15;
+            } else if (counter == 1) {
+                s2 = 15;
+            } else if (counter == 2) {
+                s3 = 15;
+            } else if (counter == 3) {
+                s4 = 15;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 17
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[1][7] == 2) {
+            if (counter == 0) {
+                s1 = 17;
+            } else if (counter == 1) {
+                s2 = 17;
+            } else if (counter == 2) {
+                s3 = 17;
+            } else if (counter == 3) {
+                s4 = 17;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 21
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][1] == 2) {
+            if (counter == 0) {
+                s1 = 21;
+            } else if (counter == 1) {
+                s2 = 21;
+            } else if (counter == 2) {
+                s3 = 21;
+            } else if (counter == 3) {
+                s4 = 21;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 23
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][3] == 2) {
+            if (counter == 0) {
+                s1 = 23;
+            } else if (counter == 1) {
+                s2 = 23;
+            } else if (counter == 2) {
+                s3 = 23;
+            } else if (counter == 3) {
+                s4 = 23;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 25
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][5] == 2) {
+            if (counter == 0) {
+                s1 = 25;
+            } else if (counter == 1) {
+                s2 = 25;
+            } else if (counter == 2) {
+                s3 = 25;
+            } else if (counter == 3) {
+                s4 = 25;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 27
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[2][7] == 2) {
+            if (counter == 0) {
+                s1 = 27;
+            } else if (counter == 1) {
+                s2 = 27;
+            } else if (counter == 2) {
+                s3 = 27;
+            } else if (counter == 3) {
+                s4 = 27;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 31
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        System.out.println("First");
+        if (white[3][1] == 2) {
+            System.out.println("Second");
+            if (counter == 0) {
+                System.out.println("Third");
+                s1 = 31;
+            } else if (counter == 1) {
+                s2 = 31;
+            } else if (counter == 2) {
+                s3 = 31;
+            } else if (counter == 3) {
+                s4 = 31;
+                
+            }            
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 33
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][3] == 2) {
+            if (counter == 0) {
+                s1 = 33;
+            } else if (counter == 1) {
+                s2 = 33;
+            } else if (counter == 2) {
+                s3 = 33;
+            } else if (counter == 3) {
+                s4 = 33;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 35
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][5] == 2) {
+            if (counter == 0) {
+                s1 = 35;
+            } else if (counter == 1) {
+                s2 = 35;
+            } else if (counter == 2) {
+                s3 = 35;
+            } else if (counter == 3) {
+                s4 = 35;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 37
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[3][7] == 2) {
+            if (counter == 0) {
+                s1 = 37;
+            } else if (counter == 1) {
+                s2 = 37;
+            } else if (counter == 2) {
+                s3 = 37;
+            } else if (counter == 3) {
+                s4 = 37;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 41
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][1] == 2) {
+            if (counter == 0) {
+                s1 = 41;
+            } else if (counter == 1) {
+                s2 = 41;
+            } else if (counter == 2) {
+                s3 = 41;
+            } else if (counter == 3) {
+                s4 = 41;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 43
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][3] == 2) {
+            if (counter == 0) {
+                s1 = 43;
+            } else if (counter == 1) {
+                s2 = 43;
+            } else if (counter == 2) {
+                s3 = 43;
+            } else if (counter == 3) {
+                s4 = 43;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 45
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][5] == 2) {
+            if (counter == 0) {
+                s1 = 45;
+            } else if (counter == 1) {
+                s2 = 45;
+            } else if (counter == 2) {
+                s3 = 45;
+            } else if (counter == 3) {
+                s4 = 45;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 47
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[4][7] == 2) {
+            if (counter == 0) {
+                s1 = 47;
+            } else if (counter == 1) {
+                s2 = 47;
+            } else if (counter == 2) {
+                s3 = 47;
+            } else if (counter == 3) {
+                s4 = 47;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 51
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][1] == 2) {
+            if (counter == 0) {
+                s1 = 51;
+            } else if (counter == 1) {
+                s2 = 51;
+            } else if (counter == 2) {
+                s3 = 51;
+            } else if (counter == 3) {
+                s4 = 51;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 53
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][3] == 2) {
+            if (counter == 0) {
+                s1 = 53;
+            } else if (counter == 1) {
+                s2 = 53;
+            } else if (counter == 2) {
+                s3 = 53;
+            } else if (counter == 3) {
+                s4 = 53;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //Search on 55
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][5] == 2) {
+            if (counter == 0) {
+                s1 = 55;
+            } else if (counter == 1) {
+                s2 = 55;
+            } else if (counter == 2) {
+                s3 = 55;
+            } else if (counter == 3) {
+                s4 = 55;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        //FINALLY Search on 57
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (white[5][7] == 2) {
+            if (counter == 0) {
+                s1 = 57;
+            } else if (counter == 1) {
+                s2 = 57;
+            } else if (counter == 2) {
+                s3 = 57;
+            } else if (counter == 3) {
+                s4 = 57;
+            }
+            counter++;
+        }
+
+// </editor-fold>
+        System.out.println("check" + s1 + " " + s2 + " " + s3 + " " + s4);
+// </editor-fold>
+
+        //find and send the red piece to WhiteRed
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        int[] red = new int[2];
+        //check to see if s1 is red or not
+        //check for red in the 00's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 01) {
+            if (white[4][3] == 6) {
+                red[0] = 4;
+                red[1] = 3;
+            }
+        }
+        if (s1 == 03) {
+            if (white[3][5] == 6) {
+                red[0] = 3;
+                red[1] = 5;
+            }
+        }
+        if (s1 == 05) {
+            if (white[1][3] == 6) {
+                red[0] = 1;
+                red[1] = 3;
+            }
+        }
+        if (s1 == 07) {
+            if (white[5][3] == 6) {
+                red[0] = 5;
+                red[1] = 3;
+            }
+        }
+
+        //this is a checkpoint S2
+        if (s2 == 01) {
+            if (white[4][3] == 6) {
+                red[0] = 4;
+                red[1] = 3;
+            }
+        }
+        if (s2 == 03) {
+            if (white[3][5] == 6) {
+                red[0] = 3;
+                red[1] = 5;
+            }
+        }
+        if (s2 == 05) {
+            if (white[1][3] == 6) {
+                red[0] = 1;
+                red[1] = 3;
+            }
+        }
+        if (s2 == 07) {
+            if (white[5][3] == 6) {
+                red[0] = 5;
+                red[1] = 3;
+            }
+        }
+        //checkpoint 03
+        if (s3 == 01) {
+            if (white[4][3] == 6) {
+                red[0] = 4;
+                red[1] = 3;
+            }
+        }
+        if (s3 == 03) {
+            if (white[3][5] == 6) {
+                red[0] = 3;
+                red[1] = 5;
+            }
+        }
+        if (s3 == 05) {
+            if (white[1][3] == 6) {
+                red[0] = 1;
+                red[1] = 3;
+            }
+        }
+        if (s3 == 07) {
+            if (white[5][3] == 6) {
+                red[0] = 5;
+                red[1] = 3;
+            }
+        }
+        //checkpoint 04
+        if (s4 == 01) {
+            if (white[4][3] == 6) {
+                red[0] = 4;
+                red[1] = 3;
+            }
+        }
+        if (s4 == 03) {
+            if (white[3][5] == 6) {
+                red[0] = 3;
+                red[1] = 5;
+            }
+        }
+        if (s4 == 05) {
+            if (white[1][3] == 6) {
+                red[0] = 1;
+                red[1] = 3;
+            }
+        }
+        if (s4 == 07) {
+            if (white[5][3] == 6) {
+                red[0] = 5;
+                red[1] = 3;
+            }
+        }
+//</editor-fold>
+        //Check for red in the 10's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 11) {
+            if (white[4][7] == 6) {
+                red[0] = 4;
+                red[1] = 7;
+            }
+        }
+        if (s1 == 13) {
+            if (white[0][5] == 6) {
+                red[0] = 0;
+                red[1] = 5;
+            }
+        }
+        if (s1 == 15) {
+            if (white[2][3] == 6) {
+                red[0] = 2;
+                red[1] = 3;
+            }
+        }
+        if (s1 == 17) {
+            if (white[5][1] == 6) {
+                red[0] = 5;
+                red[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 11) {
+            if (white[4][7] == 6) {
+                red[0] = 4;
+                red[1] = 7;
+            }
+        }
+        if (s2 == 13) {
+            if (white[0][5] == 6) {
+                red[0] = 0;
+                red[1] = 5;
+            }
+        }
+        if (s2 == 15) {
+            if (white[2][3] == 6) {
+                red[0] = 2;
+                red[1] = 3;
+            }
+        }
+        if (s2 == 17) {
+            if (white[5][1] == 6) {
+                red[0] = 5;
+                red[1] = 1;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 11) {
+            if (white[4][7] == 6) {
+                red[0] = 4;
+                red[1] = 7;
+            }
+        }
+        if (s3 == 13) {
+            if (white[0][5] == 6) {
+                red[0] = 0;
+                red[1] = 5;
+            }
+        }
+        if (s3 == 15) {
+            if (white[2][3] == 6) {
+                red[0] = 2;
+                red[1] = 3;
+            }
+        }
+        if (s3 == 17) {
+            if (white[5][1] == 6) {
+                red[0] = 5;
+                red[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 11) {
+            if (white[4][7] == 6) {
+                red[0] = 4;
+                red[1] = 7;
+            }
+        }
+        if (s4 == 13) {
+            if (white[0][5] == 6) {
+                red[0] = 0;
+                red[1] = 5;
+            }
+        }
+        if (s4 == 15) {
+            if (white[2][3] == 6) {
+                red[0] = 2;
+                red[1] = 3;
+            }
+        }
+        if (s4 == 17) {
+            if (white[5][1] == 6) {
+                red[0] = 5;
+                red[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for Red in the 20's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 21) {
+            if (white[4][5] == 6) {
+                red[0] = 4;
+                red[1] = 5;
+            }
+        }
+        if (s1 == 23) {
+            if (white[1][5] == 6) {
+                red[0] = 1;
+                red[1] = 5;
+            }
+        }
+        if (s1 == 25) {
+            if (white[3][3] == 6) {
+                red[0] = 3;
+                red[1] = 3;
+            }
+        }
+        if (s1 == 27) {
+            if (white[5][5] == 6) {
+                red[0] = 5;
+                red[1] = 5;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 21) {
+            if (white[4][5] == 6) {
+                red[0] = 4;
+                red[1] = 5;
+            }
+        }
+        if (s2 == 23) {
+            if (white[1][5] == 6) {
+                red[0] = 1;
+                red[1] = 5;
+            }
+        }
+        if (s2 == 25) {
+            if (white[3][3] == 6) {
+                red[0] = 3;
+                red[1] = 3;
+            }
+        }
+        if (s2 == 27) {
+            if (white[5][5] == 6) {
+                red[0] = 5;
+                red[1] = 5;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 21) {
+            if (white[4][5] == 6) {
+                red[0] = 4;
+                red[1] = 5;
+            }
+        }
+        if (s3 == 23) {
+            if (white[1][5] == 6) {
+                red[0] = 1;
+                red[1] = 5;
+            }
+        }
+        if (s3 == 25) {
+            if (white[3][3] == 6) {
+                red[0] = 3;
+                red[1] = 3;
+            }
+        }
+        if (s3 == 27) {
+            if (white[5][5] == 6) {
+                red[0] = 5;
+                red[1] = 5;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 21) {
+            if (white[4][5] == 6) {
+                red[0] = 4;
+                red[1] = 5;
+            }
+        }
+        if (s4 == 23) {
+            if (white[1][5] == 6) {
+                red[0] = 1;
+                red[1] = 5;
+            }
+        }
+        if (s4 == 25) {
+            if (white[3][3] == 6) {
+                red[0] = 3;
+                red[1] = 3;
+            }
+        }
+        if (s4 == 27) {
+            if (white[5][5] == 6) {
+                red[0] = 5;
+                red[1] = 5;
+            }
+        }
+//</editor-fold>
+        //Check for red in the 30's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 31) {
+            if (white[4][1] == 6) {
+                red[0] = 4;
+                red[1] = 1;
+            }
+        }
+        if (s1 == 33) {
+            if (white[2][5] == 6) {
+                red[0] = 2;
+                red[1] = 5;
+            }
+        }
+        if (s1 == 35) {
+            if (white[0][3] == 6) {
+                red[0] = 0;
+                red[1] = 3;
+            }
+        }
+        if (s1 == 37) {
+            if (white[5][7] == 6) {
+                red[0] = 5;
+                red[1] = 7;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 31) {
+            if (white[4][1] == 6) {
+                red[0] = 4;
+                red[1] = 1;
+            }
+        }
+        if (s2 == 33) {
+            if (white[2][5] == 6) {
+                red[0] = 2;
+                red[1] = 5;
+            }
+        }
+        if (s2 == 35) {
+            if (white[0][3] == 6) {
+                red[0] = 0;
+                red[1] = 3;
+            }
+        }
+        if (s2 == 37) {
+            if (white[5][7] == 6) {
+                red[0] = 5;
+                red[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 31) {
+            if (white[4][1] == 6) {
+                red[0] = 4;
+                red[1] = 1;
+            }
+        }
+        if (s3 == 33) {
+            if (white[2][5] == 6) {
+                red[0] = 2;
+                red[1] = 5;
+            }
+        }
+        if (s3 == 35) {
+            if (white[0][3] == 6) {
+                red[0] = 0;
+                red[1] = 3;
+            }
+        }
+        if (s3 == 37) {
+            if (white[5][7] == 6) {
+                red[0] = 5;
+                red[1] = 7;
+            }
+        }
+        //checpoint s4
+        if (s4 == 31) {
+            if (white[4][1] == 6) {
+                red[0] = 4;
+                red[1] = 1;
+            }
+        }
+        if (s4 == 33) {
+            if (white[2][5] == 6) {
+                red[0] = 2;
+                red[1] = 5;
+            }
+        }
+        if (s4 == 35) {
+            if (white[0][3] == 6) {
+                red[0] = 0;
+                red[1] = 3;
+            }
+        }
+        if (s4 == 37) {
+            if (white[5][7] == 6) {
+                red[0] = 5;
+                red[1] = 7;
+            }
+        }
+//</editor-fold>
+        //Check for red in the 40's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 41) {
+            if (white[3][1] == 6) {
+                red[0] = 3;
+                red[1] = 1;
+            }
+        }
+        if (s1 == 43) {
+            if (white[0][1] == 6) {
+                red[0] = 0;
+                red[1] = 1;
+            }
+        }
+        if (s1 == 45) {
+            if (white[2][1] == 6) {
+                red[0] = 2;
+                red[1] = 1;
+            }
+        }
+        if (s1 == 47) {
+            if (white[1][1] == 6) {
+                red[0] = 1;
+                red[1] = 1;
+            }
+        }
+        //checkpoint s2
+        if (s2 == 41) {
+            if (white[3][1] == 6) {
+                red[0] = 3;
+                red[1] = 1;
+            }
+        }
+        if (s2 == 43) {
+            if (white[0][1] == 6) {
+                red[0] = 0;
+                red[1] = 1;
+            }
+        }
+        if (s2 == 45) {
+            if (white[2][1] == 6) {
+                red[0] = 2;
+                red[1] = 1;
+            }
+        }
+        if (s2 == 47) {
+            if (white[1][1] == 6) {
+                red[0] = 1;
+                red[1] = 1;
+            }
+        }
+        //checkplint s3
+        if (s3 == 41) {
+            if (white[3][1] == 6) {
+                red[0] = 3;
+                red[1] = 1;
+            }
+        }
+        if (s3 == 43) {
+            if (white[0][1] == 6) {
+                red[0] = 0;
+                red[1] = 1;
+            }
+        }
+        if (s3 == 45) {
+            if (white[2][1] == 6) {
+                red[0] = 2;
+                red[1] = 1;
+            }
+        }
+        if (s3 == 47) {
+            if (white[1][1] == 6) {
+                red[0] = 1;
+                red[1] = 1;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 41) {
+            if (white[3][1] == 6) {
+                red[0] = 3;
+                red[1] = 1;
+            }
+        }
+        if (s4 == 43) {
+            if (white[0][1] == 6) {
+                red[0] = 0;
+                red[1] = 1;
+            }
+        }
+        if (s4 == 45) {
+            if (white[2][1] == 6) {
+                red[0] = 2;
+                red[1] = 1;
+            }
+        }
+        if (s4 == 47) {
+            if (white[1][1] == 6) {
+                red[0] = 1;
+                red[1] = 1;
+            }
+        }
+//</editor-fold>
+        //Check for red in the 50's
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        if (s1 == 51) {
+            if (white[1][7] == 6) {
+                red[0] = 1;
+                red[1] = 7;
+            }
+        }
+        if (s1 == 53) {
+            if (white[0][7] == 6) {
+                red[0] = 0;
+                red[1] = 7;
+            }
+        }
+        if (s1 == 55) {
+            if (white[2][7] == 6) {
+                red[0] = 2;
+                red[1] = 7;
+            }
+        }
+        if (s1 == 57) {
+            if (white[3][7] == 6) {
+                red[0] = 3;
+                red[1] = 7;
+            }
+        }
+        //checkpoint 2
+        if (s2 == 51) {
+            if (white[1][7] == 6) {
+                red[0] = 1;
+                red[1] = 7;
+            }
+        }
+        if (s2 == 53) {
+            if (white[0][7] == 6) {
+                red[0] = 0;
+                red[1] = 7;
+            }
+        }
+        if (s2 == 55) {
+            if (white[2][7] == 6) {
+                red[0] = 2;
+                red[1] = 7;
+            }
+        }
+        if (s2 == 57) {
+            if (white[3][7] == 6) {
+                red[0] = 3;
+                red[1] = 7;
+            }
+        }
+        //checkpoint s3
+        if (s3 == 51) {
+            if (white[1][7] == 6) {
+                red[0] = 1;
+                red[1] = 7;
+            }
+        }
+        if (s3 == 53) {
+            if (white[0][7] == 6) {
+                red[0] = 0;
+                red[1] = 7;
+            }
+        }
+        if (s3 == 55) {
+            if (white[2][7] == 6) {
+                red[0] = 2;
+                red[1] = 7;
+            }
+        }
+        if (s3 == 57) {
+            if (white[3][7] == 6) {
+                red[0] = 3;
+                red[1] = 7;
+            }
+        }
+        //checkpoint s4
+        if (s4 == 51) {
+            if (white[1][7] == 6) {
+                red[0] = 1;
+                red[1] = 7;
+            }
+        }
+        if (s4 == 53) {
+            if (white[0][7] == 6) {
+                red[0] = 0;
+                red[1] = 7;
+            }
+        }
+        if (s4 == 55) {
+            if (white[2][7] == 6) {
+                red[0] = 2;
+                red[1] = 7;
+            }
+        }
+        if (s4 == 57) {
+            if (white[3][7] == 6) {
+                red[0] = 3;
+                red[1] = 7;
+            }
+        }
+//</editor-fold>
+
+        //what is being given is the place of the red and thus the red should be moved to its correct spot
+        white = WhiteRed(white, red);
+        //</editor-fold>
+
+        return white;
+    }
+
+    public static int[][] WhiteBlue(int whiteblue[][], int blue[]) {
+        System.out.println("CHECK WHITE BLUE");
+        System.out.println(blue[0] + "" + "" + blue[1]);
+
+        //get the blue from the 0's to the right place
+        //<editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 0 && blue[1] == 5) {
+            whiteblue = WhiteCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 0 && blue[1] == 1) {
+            whiteblue = GreenCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 0 && blue[1] == 3) {
+            whiteblue = GreenCW(whiteblue);
+            whiteblue = GreenCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 0 && blue[1] == 7) {
+            whiteblue = GreenCCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        }
+//</editor-fold>
+        //get the blue from the 1's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 1 && blue[1] == 1) {
+            whiteblue = OrangeCCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);            
+        } else if (blue[0] == 1 && blue[1] == 3) {
+            whiteblue = WhiteCW(whiteblue);
+            whiteblue = OrangeCCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 1 && blue[1] == 5) {
+            whiteblue = BlueCW(whiteblue);
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 1 && blue[1] == 7) {
+            whiteblue = RedCW(whiteblue);
+            whiteblue = BlueCW(whiteblue);
+        }
+
+// </editor-fold>
+        //get the blue from the 2's to the rught place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 2 && blue[1] == 1) {
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 2 && blue[1] == 5) {
+            whiteblue = BlueCCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 2 && blue[1] == 7) {
+            whiteblue = BlueCW(whiteblue);
+        }
+
+// </editor-fold>
+        //get the blue from the 3's place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 3 && blue[1] == 1) {
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 3 && blue[1] == 3) {
+            whiteblue = YellowCW(whiteblue);
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 3 && blue[1] == 5) {
+            whiteblue = YellowCCW(whiteblue);
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        } else if (blue[0] == 3 && blue[1] == 7) {
+            whiteblue = YellowCW(whiteblue);
+            whiteblue = YellowCW(whiteblue);
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = BlueCCW(whiteblue);
+        }
+
+// </editor-fold>
+        //get the blue from the 4's place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 4 && blue[1] == 1) {
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 4 && blue[1] == 3) {
+            whiteblue = OrangeCCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 4 && blue[1] == 5) {
+            whiteblue = OrangeCW(whiteblue);
+            whiteblue = WhiteCW(whiteblue);
+        } else if (blue[0] == 4 && blue[1] == 7) {
+            whiteblue = WhiteCW(whiteblue);
+        }
+
+// </editor-fold>
+        //get the blue from the 5's place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (blue[0] == 5 && blue[1] == 1) {
+            whiteblue = WhiteCCW(whiteblue);
+        } else if (blue[0] == 5 && blue[1] == 3) {
+            whiteblue = RedCW(whiteblue);
+            whiteblue = WhiteCCW(whiteblue);
+        } else if (blue[0] == 5 && blue[1] == 5) {
+            whiteblue = RedCCW(whiteblue);
+            whiteblue = WhiteCCW(whiteblue);
+        } else if (blue[0] == 5 && blue[1] == 7) {
+            whiteblue = RedCW(whiteblue);
+            whiteblue = RedCW(whiteblue);
+            whiteblue = WhiteCCW(whiteblue);
+        }
+
+// </editor-fold>
+        return whiteblue;        
+    }
+
+    public static int[][] WhiteOrange(int whiteorange[][], int orange[]) {
+        System.out.println("CHECK WHITE ORANGE");
+        System.out.println(orange[0] + "" + "" + orange[1]);
+
+        //get the orange from the 0's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 0 && orange[1] == 1) {
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 0 && orange[1] == 3) {
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 0 && orange[1] == 5) {
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 0 && orange[1] == 7) {
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        }
+
+// </editor-fold>
+        //get the orange from the 1's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 1 && orange[1] == 1) {
+            whiteorange = OrangeCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);            
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 1 && orange[1] == 3) {
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+        } else if (orange[0] == 1 && orange[1] == 7) {
+            whiteorange = RedCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } // </editor-fold>
+        //get the orange from the 2's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 2 && orange[1] == 1) {
+            whiteorange = OrangeCW(whiteorange);
+            whiteorange = OrangeCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 2 && orange[1] == 5) {
+            whiteorange = YellowCW(whiteorange);
+            whiteorange = OrangeCW(whiteorange);
+            whiteorange = OrangeCW(whiteorange);
+        } else if (orange[0] == 2 && orange[1] == 7) {
+            whiteorange = WhiteCW(whiteorange);
+            whiteorange = BlueCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+        }
+
+// </editor-fold> 
+        //get the orange from the 3's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 3 && orange[1] == 1) {
+            whiteorange = OrangeCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 3 && orange[1] == 3) {
+            whiteorange = YellowCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 3 && orange[1] == 5) {
+            whiteorange = YellowCCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } else if (orange[0] == 3 && orange[1] == 7) {
+            whiteorange = YellowCW(whiteorange);
+            whiteorange = YellowCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+            whiteorange = WhiteCCW(whiteorange);
+            whiteorange = GreenCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+        } // </editor-fold>
+        //get the orange from the 4's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 4 && orange[1] == 1) {
+            whiteorange = OrangeCW(whiteorange);
+            whiteorange = OrangeCW(whiteorange);
+        } else if (orange[0] == 4 && orange[1] == 3) {
+            whiteorange = OrangeCCW(whiteorange);
+        } else if (orange[0] == 4 && orange[1] == 5) {
+            whiteorange = OrangeCW(whiteorange);
+        }
+
+// </editor-fold>
+        //get the orange from the 5's to the right place
+        // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+        if (orange[0] == 5 && orange[1] == 1) {
+            whiteorange = BlueCCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+            whiteorange = WhiteCW(whiteorange);
+            whiteorange = BlueCW(whiteorange);
+        } else if (orange[0] == 5 && orange[1] == 3) {
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+        } else if (orange[0] == 5 && orange[1] == 5) {
+            whiteorange = RedCCW(whiteorange);
+            whiteorange = RedCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+        } else if (orange[0] == 5 && orange[1] == 7) {
+            whiteorange = RedCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = GreenCCW(whiteorange);
+            whiteorange = OrangeCCW(whiteorange);
+        }
+
+// </editor-fold>
+        return whiteorange;
+    }
+
+    public static int[][] WhiteGreen(int whitegreen[][], int green[]) {
+        {
+            System.out.println("CHECK WHITE GREEN");
+            System.out.println(green[0] + "" + "" + green[1]);
+
+        //get the green from the 0's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 0 && green[1] == 1) {
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 0 && green[1] == 5) {
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 0 && green[1] == 7) {
+                whitegreen = GreenCCW(whitegreen);
+            }
+
+// </editor-fold>
+            //get the green from the 1's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 1 && green[1] == 3) {
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = WhiteCCW(whitegreen);
+                whitegreen = RedCW(whitegreen);
+                whitegreen = WhiteCW(whitegreen);
+            } else if (green[0] == 1 && green[1] == 7) {
+                whitegreen = RedCCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            } // </editor-fold>
+            //get the green from the 2's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 2 && green[1] == 1) {
+                whitegreen = WhiteCW(whitegreen);
+                whitegreen = WhiteCW(whitegreen);
+                whitegreen = BlueCCW(whitegreen);
+                whitegreen = WhiteCW(whitegreen);
+                whitegreen = WhiteCW(whitegreen);
+            } else if (green[0] == 2 && green[1] == 5) {
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 2 && green[1] == 7) {
+                whitegreen = RedCCW(whitegreen);
+                whitegreen = RedCCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            }
+
+// </editor-fold> 
+            //get the green from the 3's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 3 && green[1] == 1) {
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = RedCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            } else if (green[0] == 3 && green[1] == 3) {
+                whitegreen = YellowCCW(whitegreen);
+                whitegreen = RedCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            } else if (green[0] == 3 && green[1] == 5) {
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = RedCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            } else if (green[0] == 3 && green[1] == 7) {
+                whitegreen = RedCW(whitegreen);
+                whitegreen = GreenCCW(whitegreen);
+            } // </editor-fold>
+            //get the green from the 4's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 4 && green[1] == 1) {
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 4 && green[1] == 3) {
+                whitegreen = WhiteCW(whitegreen);
+                whitegreen = OrangeCW(whitegreen);
+                whitegreen = WhiteCCW(whitegreen);
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);                
+            } else if (green[0] == 4 && green[1] == 5) {
+                whitegreen = WhiteCW(whitegreen);
+                whitegreen = OrangeCCW(whitegreen);
+                whitegreen = WhiteCCW(whitegreen);
+                whitegreen = YellowCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            }
+
+// </editor-fold>
+            //get the green from the 5's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (green[0] == 5 && green[1] == 1) {
+                whitegreen = RedCW(whitegreen);
+                whitegreen = RedCW(whitegreen);
+                whitegreen = YellowCCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 5 && green[1] == 3) {
+                whitegreen = RedCCW(whitegreen);
+                whitegreen = YellowCCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);                
+            } else if (green[0] == 5 && green[1] == 5) {
+                whitegreen = RedCW(whitegreen);
+                whitegreen = YellowCCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            } else if (green[0] == 5 && green[1] == 7) {
+                whitegreen = YellowCCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+                whitegreen = GreenCW(whitegreen);
+            }
+
+// </editor-fold>
+            return whitegreen;
+        }
+    }
+
+    public static int[][] WhiteRed(int whitered[][], int red[]) {
+        {
+            System.out.println("CHECK WHITE RED");
+            System.out.println(red[0] + "" + "" + red[1]);
+
+        //get the red from the 0's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 0 && red[1] == 1) {
+                whitered = WhiteCW(whitered);
+                whitered = GreenCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } else if (red[0] == 0 && red[1] == 3) {
+                whitered = WhiteCW(whitered);
+                whitered = GreenCW(whitered);
+                whitered = GreenCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } else if (red[0] == 0 && red[1] == 7) {
+                whitered = WhiteCW(whitered);
+                whitered = GreenCCW(whitered);
+                whitered = WhiteCCW(whitered);
+            }
+
+// </editor-fold>
+            //get the red from the 1's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 1 && red[1] == 7) {
+                whitered = RedCW(whitered);
+                whitered = WhiteCCW(whitered);
+                whitered = BlueCW(whitered);
+                whitered = WhiteCW(whitered);
+            } // </editor-fold>
+            //get the red from the 2's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 2 && red[1] == 1) {
+                whitered = WhiteCCW(whitered);
+                whitered = BlueCCW(whitered);
+                whitered = WhiteCW(whitered);
+                
+            } else if (red[0] == 2 && red[1] == 5) {
+                whitered = YellowCCW(whitered);
+                whitered = RedCW(whitered);
+                whitered = RedCW(whitered);
+            } else if (red[0] == 2 && red[1] == 7) {
+                whitered = WhiteCCW(whitered);
+                whitered = BlueCW(whitered);
+                whitered = WhiteCW(whitered);
+            }
+
+// </editor-fold> 
+            //get the red from the 3's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 3 && red[1] == 1) {
+                whitered = YellowCW(whitered);
+                whitered = YellowCW(whitered);
+                whitered = RedCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = GreenCCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } else if (red[0] == 3 && red[1] == 3) {
+                whitered = YellowCCW(whitered);
+                whitered = RedCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = GreenCCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } else if (red[0] == 3 && red[1] == 5) {
+                whitered = YellowCW(whitered);
+                whitered = RedCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = GreenCCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } else if (red[0] == 3 && red[1] == 7) {
+                whitered = RedCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = GreenCCW(whitered);
+                whitered = WhiteCCW(whitered);
+            } // </editor-fold>
+            //get the red from the 4's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 4 && red[1] == 1) {
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = OrangeCW(whitered);
+                whitered = OrangeCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);                
+            } else if (red[0] == 4 && red[1] == 3) {
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = OrangeCCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);
+            } else if (red[0] == 4 && red[1] == 5) {
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = OrangeCW(whitered);
+                whitered = WhiteCW(whitered);
+                whitered = WhiteCW(whitered);
+            }
+
+// </editor-fold>
+            //get the red from the 5's to the right place
+            // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
+            if (red[0] == 5 && red[1] == 3) {
+                whitered = RedCW(whitered);                
+            } else if (red[0] == 5 && red[1] == 5) {
+                whitered = RedCCW(whitered);
+            } else if (red[0] == 5 && red[1] == 7) {
+                whitered = RedCW(whitered);
+                whitered = RedCW(whitered);
+            }
+
+// </editor-fold>
+            return whitered;
+        }
+    }
+
+// </editor-fold>
+    //Turns and get colors
+    //<editor-fold defaultstate="collapsed" desc="comment">
+    public static int[][] GreenCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[0][0];
+        primaryFace[1] = colors[0][1];
+        primaryFace[2] = colors[0][2];
+        primaryFace[3] = colors[0][3];
+        primaryFace[4] = colors[0][4];
+        primaryFace[5] = colors[0][5];
+        primaryFace[6] = colors[0][6];
+        primaryFace[7] = colors[0][7];
+        primaryFace[8] = colors[0][8];
+        
+        colors[0][2] = primaryFace[0];
+        colors[0][5] = primaryFace[1];
+        colors[0][8] = primaryFace[2];
+        colors[0][1] = primaryFace[3];
+        colors[0][4] = primaryFace[4];
+        colors[0][7] = primaryFace[5];
+        colors[0][0] = primaryFace[6];
+        colors[0][3] = primaryFace[7];
+        colors[0][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[40] = colors[4][0];
+        primaryOuter[43] = colors[4][3];
+        primaryOuter[46] = colors[4][6];
+        primaryOuter[10] = colors[1][0];
+        primaryOuter[13] = colors[1][3];
+        primaryOuter[16] = colors[1][6];
+        primaryOuter[50] = colors[5][0];
+        primaryOuter[53] = colors[5][3];
+        primaryOuter[56] = colors[5][6];
+        primaryOuter[38] = colors[3][8];
+        primaryOuter[35] = colors[3][5];
+        primaryOuter[32] = colors[3][2];
+        
+        colors[1][0] = primaryOuter[40];
+        colors[1][3] = primaryOuter[43];
+        colors[1][6] = primaryOuter[46];
+        colors[5][0] = primaryOuter[10];
+        colors[5][3] = primaryOuter[13];
+        colors[5][6] = primaryOuter[16];
+        colors[3][8] = primaryOuter[50];
+        colors[3][5] = primaryOuter[53];
+        colors[3][2] = primaryOuter[56];
+        colors[4][0] = primaryOuter[38];
+        colors[4][3] = primaryOuter[35];
+        colors[4][5] = primaryOuter[32];
+        
+        //now you have to new values ater turning the green clockwise once
+        System.out.println("GreenClockWise");
+        return colors;
+    }
+    public static int[][] GreenCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[0][0];
+        primaryFace[1] = colors[0][1];
+        primaryFace[2] = colors[0][2];
+        primaryFace[3] = colors[0][3];
+        primaryFace[4] = colors[0][4];
+        primaryFace[5] = colors[0][5];
+        primaryFace[6] = colors[0][6];
+        primaryFace[7] = colors[0][7];
+        primaryFace[8] = colors[0][8];
+        
+        colors[0][6] = primaryFace[0];
+        colors[0][3] = primaryFace[1];
+        colors[0][0] = primaryFace[2];
+        colors[0][7] = primaryFace[3];
+        colors[0][4] = primaryFace[4];
+        colors[0][1] = primaryFace[5];
+        colors[0][8] = primaryFace[6];
+        colors[0][5] = primaryFace[7];
+        colors[0][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[40] = colors[4][0];
+        primaryOuter[43] = colors[4][3];
+        primaryOuter[46] = colors[4][6];
+        primaryOuter[10] = colors[1][0];
+        primaryOuter[13] = colors[1][3];
+        primaryOuter[16] = colors[1][6];
+        primaryOuter[50] = colors[5][0];
+        primaryOuter[53] = colors[5][3];
+        primaryOuter[56] = colors[5][6];
+        primaryOuter[38] = colors[3][8];
+        primaryOuter[35] = colors[3][5];
+        primaryOuter[32] = colors[3][2];
+        
+        colors[3][8] = primaryOuter[40];
+        colors[3][5] = primaryOuter[43];
+        colors[3][2] = primaryOuter[46];
+        colors[4][0] = primaryOuter[10];
+        colors[4][3] = primaryOuter[13];
+        colors[4][6] = primaryOuter[16];
+        colors[1][0] = primaryOuter[50];
+        colors[1][3] = primaryOuter[53];
+        colors[1][6] = primaryOuter[56];
+        colors[5][0] = primaryOuter[38];
+        colors[5][3] = primaryOuter[35];
+        colors[5][6] = primaryOuter[32];
+        
+        //now you have to new values ater turning the green clockwise once
+        System.out.println("GreenCounterClockWise");
+        return colors;
+    }
+    public static int[][] WhiteCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[1][0];
+        primaryFace[1] = colors[1][1];
+        primaryFace[2] = colors[1][2];
+        primaryFace[3] = colors[1][3];
+        primaryFace[4] = colors[1][4];
+        primaryFace[5] = colors[1][5];
+        primaryFace[6] = colors[1][6];
+        primaryFace[7] = colors[1][7];
+        primaryFace[8] = colors[1][8];
+        
+        colors[1][2] = primaryFace[0];
+        colors[1][5] = primaryFace[1];
+        colors[1][8] = primaryFace[2];
+        colors[1][1] = primaryFace[3];
+        colors[1][4] = primaryFace[4];
+        colors[1][7] = primaryFace[5];
+        colors[1][0] = primaryFace[6];
+        colors[1][3] = primaryFace[7];
+        colors[1][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[46] = colors[4][6];
+        primaryOuter[47] = colors[4][7];
+        primaryOuter[48] = colors[4][8];
+        primaryOuter[20] = colors[2][0];
+        primaryOuter[23] = colors[2][3];
+        primaryOuter[26] = colors[2][6];
+        primaryOuter[52] = colors[0][8];
+        primaryOuter[51] = colors[0][5];
+        primaryOuter[50] = colors[0][2];
+        primaryOuter[8] = colors[0][8];
+        primaryOuter[5] = colors[0][5];
+        primaryOuter[2] = colors[0][2];
+        
+        colors[2][0] = primaryOuter[46];
+        colors[2][3] = primaryOuter[47];
+        colors[2][6] = primaryOuter[48];
+        colors[5][2] = primaryOuter[20];
+        colors[5][1] = primaryOuter[23];
+        colors[5][0] = primaryOuter[26];
+        colors[0][8] = primaryOuter[52];
+        colors[0][5] = primaryOuter[51];
+        colors[0][2] = primaryOuter[50];
+        colors[4][6] = primaryOuter[8];
+        colors[4][7] = primaryOuter[5];
+        colors[4][8] = primaryOuter[2];
+        
+        //now you have to new values ater turning the White clockwise once
+        System.out.println("WhiteClockWise");
+        return colors;
+    }
+    public static int[][] WhiteCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[1][0];
+        primaryFace[1] = colors[1][1];
+        primaryFace[2] = colors[1][2];
+        primaryFace[3] = colors[1][3];
+        primaryFace[4] = colors[1][4];
+        primaryFace[5] = colors[1][5];
+        primaryFace[6] = colors[1][6];
+        primaryFace[7] = colors[1][7];
+        primaryFace[8] = colors[1][8];
+        
+        colors[1][6] = primaryFace[0];
+        colors[1][3] = primaryFace[1];
+        colors[1][0] = primaryFace[2];
+        colors[1][7] = primaryFace[3];
+        colors[1][4] = primaryFace[4];
+        colors[1][1] = primaryFace[5];
+        colors[1][8] = primaryFace[6];
+        colors[1][5] = primaryFace[7];
+        colors[1][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[46] = colors[4][6];
+        primaryOuter[47] = colors[4][7];
+        primaryOuter[48] = colors[4][8];
+        primaryOuter[20] = colors[2][0];
+        primaryOuter[23] = colors[2][3];
+        primaryOuter[26] = colors[2][6];
+        primaryOuter[52] = colors[0][8];
+        primaryOuter[51] = colors[0][5];
+        primaryOuter[50] = colors[0][2];
+        primaryOuter[8] = colors[0][8];
+        primaryOuter[5] = colors[0][5];
+        primaryOuter[2] = colors[0][2];
+        
+        colors[0][8] = primaryOuter[46];
+        colors[0][5] = primaryOuter[47];
+        colors[0][2] = primaryOuter[48];
+        colors[4][6] = primaryOuter[20];
+        colors[4][7] = primaryOuter[23];
+        colors[4][8] = primaryOuter[26];
+        colors[2][0] = primaryOuter[52];
+        colors[2][3] = primaryOuter[51];
+        colors[2][6] = primaryOuter[50];
+        colors[5][2] = primaryOuter[8];
+        colors[5][1] = primaryOuter[5];
+        colors[5][0] = primaryOuter[2];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("WhiteCounterClockWise");
+        return colors;
+    }
+    public static int[][] BlueCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[2][0];
+        primaryFace[1] = colors[2][1];
+        primaryFace[2] = colors[2][2];
+        primaryFace[3] = colors[2][3];
+        primaryFace[4] = colors[2][4];
+        primaryFace[5] = colors[2][5];
+        primaryFace[6] = colors[2][6];
+        primaryFace[7] = colors[2][7];
+        primaryFace[8] = colors[2][8];
+        
+        colors[2][2] = primaryFace[0];
+        colors[2][5] = primaryFace[1];
+        colors[2][8] = primaryFace[2];
+        colors[2][1] = primaryFace[3];
+        colors[2][4] = primaryFace[4];
+        colors[2][7] = primaryFace[5];
+        colors[2][0] = primaryFace[6];
+        colors[2][3] = primaryFace[7];
+        colors[2][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[48] = colors[4][8];
+        primaryOuter[45] = colors[4][5];
+        primaryOuter[42] = colors[4][2];
+        primaryOuter[30] = colors[3][0];
+        primaryOuter[33] = colors[3][3];
+        primaryOuter[36] = colors[3][6];
+        primaryOuter[58] = colors[5][8];
+        primaryOuter[55] = colors[5][5];
+        primaryOuter[52] = colors[5][2];
+        primaryOuter[18] = colors[1][8];
+        primaryOuter[15] = colors[1][5];
+        primaryOuter[12] = colors[1][2];
+        
+        colors[3][0] = primaryOuter[48];
+        colors[3][3] = primaryOuter[45];
+        colors[3][6] = primaryOuter[42];
+        colors[5][8] = primaryOuter[30];
+        colors[5][5] = primaryOuter[33];
+        colors[5][2] = primaryOuter[36];
+        colors[1][8] = primaryOuter[58];
+        colors[1][5] = primaryOuter[55];
+        colors[1][2] = primaryOuter[52];
+        colors[4][8] = primaryOuter[18];
+        colors[4][5] = primaryOuter[15];
+        colors[4][2] = primaryOuter[12];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("BlueClockWise");
+        return colors;
+    }
+    public static int[][] BlueCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[2][0];
+        primaryFace[1] = colors[2][1];
+        primaryFace[2] = colors[2][2];
+        primaryFace[3] = colors[2][3];
+        primaryFace[4] = colors[2][4];
+        primaryFace[5] = colors[2][5];
+        primaryFace[6] = colors[2][6];
+        primaryFace[7] = colors[2][7];
+        primaryFace[8] = colors[2][8];
+        
+        colors[2][6] = primaryFace[0];
+        colors[2][3] = primaryFace[1];
+        colors[2][0] = primaryFace[2];
+        colors[2][7] = primaryFace[3];
+        colors[2][4] = primaryFace[4];
+        colors[2][1] = primaryFace[5];
+        colors[2][8] = primaryFace[6];
+        colors[2][5] = primaryFace[7];
+        colors[2][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[48] = colors[4][8];
+        primaryOuter[45] = colors[4][5];
+        primaryOuter[42] = colors[4][2];
+        primaryOuter[30] = colors[3][0];
+        primaryOuter[33] = colors[3][3];
+        primaryOuter[36] = colors[3][6];
+        primaryOuter[58] = colors[5][8];
+        primaryOuter[55] = colors[5][5];
+        primaryOuter[52] = colors[5][2];
+        primaryOuter[18] = colors[1][8];
+        primaryOuter[15] = colors[1][5];
+        primaryOuter[12] = colors[1][2];
+        
+        colors[1][8] = primaryOuter[48];
+        colors[1][5] = primaryOuter[45];
+        colors[1][2] = primaryOuter[42];
+        colors[4][8] = primaryOuter[30];
+        colors[4][5] = primaryOuter[33];
+        colors[4][2] = primaryOuter[36];
+        colors[3][0] = primaryOuter[58];
+        colors[3][3] = primaryOuter[55];
+        colors[3][6] = primaryOuter[52];
+        colors[5][8] = primaryOuter[18];
+        colors[5][5] = primaryOuter[15];
+        colors[5][2] = primaryOuter[12];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("BlueCounterClockWise");
+        return colors;
+    }
+    public static int[][] YellowCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[3][0];
+        primaryFace[1] = colors[3][1];
+        primaryFace[2] = colors[3][2];
+        primaryFace[3] = colors[3][3];
+        primaryFace[4] = colors[3][4];
+        primaryFace[5] = colors[3][5];
+        primaryFace[6] = colors[3][6];
+        primaryFace[7] = colors[3][7];
+        primaryFace[8] = colors[3][8];
+        
+        colors[3][2] = primaryFace[0];
+        colors[3][5] = primaryFace[1];
+        colors[3][8] = primaryFace[2];
+        colors[3][1] = primaryFace[3];
+        colors[3][4] = primaryFace[4];
+        colors[3][7] = primaryFace[5];
+        colors[3][0] = primaryFace[6];
+        colors[3][3] = primaryFace[7];
+        colors[3][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[42] = colors[4][2];
+        primaryOuter[41] = colors[4][1];
+        primaryOuter[40] = colors[4][0];
+        primaryOuter[00] = colors[0][0];
+        primaryOuter[03] = colors[0][3];
+        primaryOuter[06] = colors[0][6];
+        primaryOuter[56] = colors[5][6];
+        primaryOuter[57] = colors[5][7];
+        primaryOuter[58] = colors[5][8];
+        primaryOuter[28] = colors[2][8];
+        primaryOuter[25] = colors[2][5];
+        primaryOuter[22] = colors[2][2];
+        
+        colors[0][0] = primaryOuter[42];
+        colors[0][3] = primaryOuter[41];
+        colors[0][6] = primaryOuter[40];
+        colors[5][6] = primaryOuter[00];
+        colors[5][7] = primaryOuter[03];
+        colors[5][8] = primaryOuter[06];
+        colors[2][8] = primaryOuter[56];
+        colors[2][5] = primaryOuter[57];
+        colors[2][2] = primaryOuter[58];
+        colors[4][2] = primaryOuter[28];
+        colors[4][1] = primaryOuter[25];
+        colors[4][0] = primaryOuter[22];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("YellowClockWise");
+        return colors;
+    }
+    public static int[][] YellowCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[3][0];
+        primaryFace[1] = colors[3][1];
+        primaryFace[2] = colors[3][2];
+        primaryFace[3] = colors[3][3];
+        primaryFace[4] = colors[3][4];
+        primaryFace[5] = colors[3][5];
+        primaryFace[6] = colors[3][6];
+        primaryFace[7] = colors[3][7];
+        primaryFace[8] = colors[3][8];
+        
+        colors[3][6] = primaryFace[0];
+        colors[3][3] = primaryFace[1];
+        colors[3][0] = primaryFace[2];
+        colors[3][7] = primaryFace[3];
+        colors[3][4] = primaryFace[4];
+        colors[3][1] = primaryFace[5];
+        colors[3][8] = primaryFace[6];
+        colors[3][5] = primaryFace[7];
+        colors[3][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[42] = colors[4][2];
+        primaryOuter[41] = colors[4][1];
+        primaryOuter[40] = colors[4][0];
+        primaryOuter[00] = colors[0][0];
+        primaryOuter[03] = colors[0][3];
+        primaryOuter[06] = colors[0][6];
+        primaryOuter[56] = colors[5][6];
+        primaryOuter[57] = colors[5][7];
+        primaryOuter[58] = colors[5][8];
+        primaryOuter[28] = colors[2][8];
+        primaryOuter[25] = colors[2][5];
+        primaryOuter[22] = colors[2][2];
+        
+        colors[2][8] = primaryOuter[42];
+        colors[2][5] = primaryOuter[41];
+        colors[2][2] = primaryOuter[40];
+        colors[4][2] = primaryOuter[00];
+        colors[4][1] = primaryOuter[03];
+        colors[4][0] = primaryOuter[06];
+        colors[0][0] = primaryOuter[56];
+        colors[0][3] = primaryOuter[57];
+        colors[0][6] = primaryOuter[58];
+        colors[5][6] = primaryOuter[28];
+        colors[5][7] = primaryOuter[25];
+        colors[5][8] = primaryOuter[22];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("YellowCounterClockWise");
+        return colors;
+    }
+    public static int[][] OrangeCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[4][0];
+        primaryFace[1] = colors[4][1];
+        primaryFace[2] = colors[4][2];
+        primaryFace[3] = colors[4][3];
+        primaryFace[4] = colors[4][4];
+        primaryFace[5] = colors[4][5];
+        primaryFace[6] = colors[4][6];
+        primaryFace[7] = colors[4][7];
+        primaryFace[8] = colors[4][8];
+        
+        colors[4][2] = primaryFace[0];
+        colors[4][5] = primaryFace[1];
+        colors[4][8] = primaryFace[2];
+        colors[4][1] = primaryFace[3];
+        colors[4][4] = primaryFace[4];
+        colors[4][7] = primaryFace[5];
+        colors[4][0] = primaryFace[6];
+        colors[4][3] = primaryFace[7];
+        colors[4][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[32] = colors[3][2];
+        primaryOuter[31] = colors[3][1];
+        primaryOuter[30] = colors[3][0];
+        primaryOuter[22] = colors[2][2];
+        primaryOuter[21] = colors[2][1];
+        primaryOuter[20] = colors[2][0];
+        primaryOuter[12] = colors[1][2];
+        primaryOuter[11] = colors[1][1];
+        primaryOuter[10] = colors[1][0];
+        primaryOuter[02] = colors[0][2];
+        primaryOuter[01] = colors[0][1];
+        primaryOuter[00] = colors[0][0];
+        
+        colors[2][2] = primaryOuter[32];
+        colors[2][1] = primaryOuter[31];
+        colors[2][0] = primaryOuter[30];
+        colors[1][2] = primaryOuter[22];
+        colors[1][1] = primaryOuter[21];
+        colors[1][0] = primaryOuter[20];
+        colors[0][2] = primaryOuter[12];
+        colors[0][1] = primaryOuter[11];
+        colors[0][0] = primaryOuter[10];
+        colors[3][2] = primaryOuter[02];
+        colors[3][1] = primaryOuter[01];
+        colors[3][0] = primaryOuter[00];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("OrangeClockWise");
+        return colors;
+    }
+    public static int[][] OrangeCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[4][0];
+        primaryFace[1] = colors[4][1];
+        primaryFace[2] = colors[4][2];
+        primaryFace[3] = colors[4][3];
+        primaryFace[4] = colors[4][4];
+        primaryFace[5] = colors[4][5];
+        primaryFace[6] = colors[4][6];
+        primaryFace[7] = colors[4][7];
+        primaryFace[8] = colors[4][8];
+        
+        colors[4][6] = primaryFace[0];
+        colors[4][3] = primaryFace[1];
+        colors[4][0] = primaryFace[2];
+        colors[4][7] = primaryFace[3];
+        colors[4][4] = primaryFace[4];
+        colors[4][1] = primaryFace[5];
+        colors[4][8] = primaryFace[6];
+        colors[4][5] = primaryFace[7];
+        colors[4][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[32] = colors[3][2];
+        primaryOuter[31] = colors[3][1];
+        primaryOuter[30] = colors[3][0];
+        primaryOuter[22] = colors[2][2];
+        primaryOuter[21] = colors[2][1];
+        primaryOuter[20] = colors[2][0];
+        primaryOuter[12] = colors[1][2];
+        primaryOuter[11] = colors[1][1];
+        primaryOuter[10] = colors[1][0];
+        primaryOuter[02] = colors[0][2];
+        primaryOuter[01] = colors[0][1];
+        primaryOuter[00] = colors[0][0];
+        
+        colors[0][2] = primaryOuter[32];
+        colors[0][1] = primaryOuter[31];
+        colors[0][0] = primaryOuter[30];
+        colors[3][2] = primaryOuter[22];
+        colors[3][1] = primaryOuter[21];
+        colors[3][0] = primaryOuter[20];
+        colors[2][2] = primaryOuter[12];
+        colors[2][1] = primaryOuter[11];
+        colors[2][0] = primaryOuter[10];
+        colors[1][2] = primaryOuter[02];
+        colors[1][1] = primaryOuter[01];
+        colors[1][0] = primaryOuter[00];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("OrangeCounerClockWise");
+        return colors;
+    }
+    public static int[][] RedCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[5][0];
+        primaryFace[1] = colors[5][1];
+        primaryFace[2] = colors[5][2];
+        primaryFace[3] = colors[5][3];
+        primaryFace[4] = colors[5][4];
+        primaryFace[5] = colors[5][5];
+        primaryFace[6] = colors[5][6];
+        primaryFace[7] = colors[5][7];
+        primaryFace[8] = colors[5][8];
+        
+        colors[5][2] = primaryFace[0];
+        colors[5][5] = primaryFace[1];
+        colors[5][8] = primaryFace[2];
+        colors[5][1] = primaryFace[3];
+        colors[5][4] = primaryFace[4];
+        colors[5][7] = primaryFace[5];
+        colors[5][0] = primaryFace[6];
+        colors[5][3] = primaryFace[7];
+        colors[5][6] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[16] = colors[1][6];
+        primaryOuter[17] = colors[1][7];
+        primaryOuter[18] = colors[1][8];
+        primaryOuter[26] = colors[2][6];
+        primaryOuter[27] = colors[2][7];
+        primaryOuter[28] = colors[2][8];
+        primaryOuter[36] = colors[3][6];
+        primaryOuter[37] = colors[3][7];
+        primaryOuter[38] = colors[3][8];
+        primaryOuter[6] = colors[0][6];
+        primaryOuter[7] = colors[0][7];
+        primaryOuter[8] = colors[0][8];
+        
+        colors[2][6] = primaryOuter[16];
+        colors[2][7] = primaryOuter[17];
+        colors[2][8] = primaryOuter[18];
+        colors[3][6] = primaryOuter[26];
+        colors[3][7] = primaryOuter[27];
+        colors[3][8] = primaryOuter[28];
+        colors[0][6] = primaryOuter[36];
+        colors[0][7] = primaryOuter[37];
+        colors[0][8] = primaryOuter[38];
+        colors[1][6] = primaryOuter[6];
+        colors[1][7] = primaryOuter[7];
+        colors[1][8] = primaryOuter[8];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("RedClockWise");
+        return colors;
+    }
+    public static int[][] RedCCW(int colors[][])
+    {
+        //First you have to change the face parts
+        int[] primaryFace = new int[62];
+        primaryFace[0] = colors[5][0];
+        primaryFace[1] = colors[5][1];
+        primaryFace[2] = colors[5][2];
+        primaryFace[3] = colors[5][3];
+        primaryFace[4] = colors[5][4];
+        primaryFace[5] = colors[5][5];
+        primaryFace[6] = colors[5][6];
+        primaryFace[7] = colors[5][7];
+        primaryFace[8] = colors[5][8];
+        
+        colors[5][6] = primaryFace[0];
+        colors[5][3] = primaryFace[1];
+        colors[5][0] = primaryFace[2];
+        colors[5][7] = primaryFace[3];
+        colors[5][4] = primaryFace[4];
+        colors[5][1] = primaryFace[5];
+        colors[5][8] = primaryFace[6];
+        colors[5][5] = primaryFace[7];
+        colors[5][2] = primaryFace[8];
+        
+        //Then you have to change the outer parts
+        int[] primaryOuter = new int[62];
+        primaryOuter[16] = colors[1][6];
+        primaryOuter[17] = colors[1][7];
+        primaryOuter[18] = colors[1][8];
+        primaryOuter[26] = colors[2][6];
+        primaryOuter[27] = colors[2][7];
+        primaryOuter[28] = colors[2][8];
+        primaryOuter[36] = colors[3][6];
+        primaryOuter[37] = colors[3][7];
+        primaryOuter[38] = colors[3][8];
+        primaryOuter[6] = colors[0][6];
+        primaryOuter[7] = colors[0][7];
+        primaryOuter[8] = colors[0][8];
+        
+        colors[0][6] = primaryOuter[16];
+        colors[0][7] = primaryOuter[17];
+        colors[0][8] = primaryOuter[18];
+        colors[1][6] = primaryOuter[26];
+        colors[1][7] = primaryOuter[27];
+        colors[1][8] = primaryOuter[28];
+        colors[2][6] = primaryOuter[36];
+        colors[2][7] = primaryOuter[37];
+        colors[2][8] = primaryOuter[38];
+        colors[3][6] = primaryOuter[6];
+        colors[3][7] = primaryOuter[7];
+        colors[3][8] = primaryOuter[8];
+        
+        //now you have to new values ater turning the White CounterClokwise once
+        System.out.println("RedCounterClockWise");
+        return colors;
+    }
+    public static int[][] getColors()//input is the colors that we get and it will be returned as so
+    {
+        int input[][] = new int[6][9];
+        //initiate the counter
+        int counter_0 = 0;
+        int counter_1 = 0;
+        //initiate the scanner for the imput
+        Scanner in = new Scanner(System.in);
+        //Collect the data
+        
+                //Get the data for the green side
+                System.out.println("Enter the colors for the green side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED\n"
+                        + "The orange side should be on top\n"
+                        + "The red side is on the bottom\n"
+                        + "The white side to the right\n"
+                        + "And the yellow side to the left");
+                while(counter_0 <= 8)
+                { 
+                        //System.out.println(counter_0);
+                        counter_1 = 0;
+                        input[0][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+                //Enter the colors for the white side
+                System.out.println("Enter the colors for the white side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED\n"
+                        + "The orange side should be on top\n"
+                        + "The red side should be on the bottom\n"
+                        + "The blue side to the right\n"
+                        + "And the green side to the left");
+                //reset the counter
+                counter_0 = 0;
+                while(counter_0 <= 8)
+                {
+                        counter_1 = 0;
+                        input[1][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+                //Enter the colors for the blue side
+                System.out.println("Enter the colors for the blue side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED\n"
+                        + "Orange on top\n"
+                        + "red on bottom\n"
+                        + "yellow to the right\n"
+                        + "And Red on bottom");
+                counter_0 = 0;
+                while(counter_0 <= 8)
+                {
+                        counter_1 = 0;
+                        input[2][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+              //Enter the colors for the yellow side
+                System.out.println("Enter the colors for the yellow side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED\n"
+                        + "Orange on top\n"
+                        + "red on bottom\n"
+                        + "green to right\n"
+                        + "blue to left");
+                counter_0 = 0;
+                while(counter_0 <= 8)
+                {
+                        counter_1 = 0;
+                        input[3][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+              //Enter the colors for the orange side
+                System.out.println("Enter the colors for the orange side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED");
+                counter_0 = 0;
+                while(counter_0 <= 8)
+                {
+                        counter_1 = 0;
+                        input[4][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+              //Enter the colors for the red side
+                System.out.println("Enter the colors for the red side\n1 = GREEN\n2 = WHITE\n3 = BLUE\n4 = YELLOW\n5 = ORANGE\n6 = RED");
+                counter_0 = 0;
+                while(counter_0 <= 8)
+                {
+                        counter_1 = 0;
+                        input[5][counter_0] = Integer.parseInt(in.nextLine());
+                        counter_0++;
+                }
+        return input;
+    }
+    
+//</editor-fold>
+}
+
